@@ -19,30 +19,31 @@
 
 <resources>
     <!-- Reader section -->
-    <string name="default_reader_app_key">defaultReaderApp</string>
+    <string name="default_reader_app_key" translatable="false">defaultReaderApp</string>
     <string name="default_reader_app_title">Default application</string>
     <string name="default_reader_app_summary">Select reader application which will be default on this device</string>
-    <string name="default_reader_app_default_value">org.koreader.launcher/org.koreader.launcher.MainActivity</string>
+    <string name="default_reader_app_default_value" translatable="false">org.koreader.launcher/org.koreader.launcher.MainActivity</string>
 
     <string name="reader_preference_section">Reader</string>
-    <string name="auto_start_reader_app_key">autoStartReaderApp</string>
+    <string name="auto_start_reader_app_key" translatable="false">autoStartReaderApp</string>
     <string name="auto_start_reader_app_title">Run on start up</string>
     <bool name="auto_start_reader_app_default_value">false</bool>
     <string name="auto_start_reader_app_summary">Automatically run reader application after device boots up</string>
 
     <!-- Launcher section -->
     <string name="launcher_preference_section">Launcher</string>
-    <string name="hidden_applications_key">hiddenApplications</string>
+    <string name="hidden_applications_key" translatable="false">hiddenApplications</string>
     <string name="hidden_applications_title">Hide applications</string>
     <string name="hidden_applications_summary">Define applications which will not be visible in the launcher</string>
 
-    <string name="sorting_strategy_key">sortingStrategy</string>
+    <string name="sorting_strategy_key" translatable="false">sortingStrategy</string>
     <string name="sorting_strategy_title">Sort By</string>
     <string name="sorting_strategy_summary">Define how applications will be sorted in the launcher</string>
-    <string name="sorting_strategy_default_value">READER_APP_FIRST</string>
+    <string name="sorting_strategy_default_value" translatable="false">READER_APP_FIRST</string>
+    <string name="reader_app_first_label">Reader application first</string>
 
     <string-array name="sorting_type_labels">
-        <item>Reader application first</item>
+        <item>@string/reader_app_first_label</item>
         <item>A - Z</item>
         <item>Z - A</item>
     </string-array>
@@ -59,7 +60,7 @@
         <item>@drawable/ic_sort_type_desc</item>
     </array>
 
-    <string name="icons_theme_key">iconsTheme</string>
+    <string name="icons_theme_key" translatable="false">iconsTheme</string>
     <string name="icons_theme_title">Icons theme</string>
     <string name="icons_theme_summary">Define custom icons theme</string>
     <string name="icons_theme_default_label">Default</string>
