@@ -1,0 +1,22 @@
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector android:height="35dp" android:viewportHeight="512"
+    android:viewportWidth="448" android:width="30dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF000000" android:pathData="M400,32L48,32C21.5,32 0,53.5 0,80v352c0,26.5 21.5,48 48,48h352c26.5,0 48,-21.5 48,-48L448,80c0,-26.5 -21.5,-48 -48,-48zM394,432L54,432c-3.3,0 -6,-2.7 -6,-6L48,86c0,-3.3 2.7,-6 6,-6h340c3.3,0 6,2.7 6,6v340c0,3.3 -2.7,6 -6,6z"/>
+</vector>

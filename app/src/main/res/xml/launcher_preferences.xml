@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/reader_preference_section"
+        app:layout="@layout/preference_category_custom"
+        >
+
+        <org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference
+            app:key="@string/default_reader_app_key"
+            app:title="@string/default_reader_app_title"
+            app:summary="@string/default_reader_app_summary"
+            app:defaultValue="@string/default_reader_app_default_value"
+            app:icon="@drawable/ic_default_reader_app"
+            app:layout="@layout/preference_custom"
+            />
+
+        <CheckBoxPreference
+            app:key="@string/auto_start_reader_app_key"
+            app:title="@string/auto_start_reader_app_title"
+            app:summary="@string/auto_start_reader_app_summary"
+            app:defaultValue="@bool/auto_start_reader_app_default_value"
+            app:icon="@drawable/ic_auto_start_reader_app"
+            app:layout="@layout/preference_custom"
+            />
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:title="@string/launcher_preference_section"
+        app:layout="@layout/preference_category_custom"
+        >
+
+        <org.ds.simple.ink.launcher.settings.preference.MultiChoiceListPreference
+            app:key="@string/hidden_applications_key"
+            app:title="@string/hidden_applications_title"
+            app:summary="@string/hidden_applications_summary"
+            app:icon="@drawable/ic_hidden_applications"
+            app:layout="@layout/preference_custom"
+            />
+
+        <org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference
+            app:key="@string/sorting_strategy_key"
+            app:title="@string/sorting_strategy_title"
+            app:summary="@string/sorting_strategy_summary"
+            app:defaultValue="@string/sorting_strategy_default_value"
+            app:icon="@drawable/ic_sorting_strategy"
+            app:layout="@layout/preference_custom"
+            />
+
+        <org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference
+            app:key="@string/icons_theme_key"
+            app:title="@string/icons_theme_title"
+            app:summary="@string/icons_theme_summary"
+            app:icon="@drawable/ic_icons_theme"
+            app:layout="@layout/preference_custom"
+            />
+
+    </PreferenceCategory>
+</androidx.preference.PreferenceScreen>

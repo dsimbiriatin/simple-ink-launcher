@@ -1,0 +1,46 @@
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="103.0001"
+    android:viewportHeight="103.0001"
+    android:width="35dp"
+    android:height="35dp">
+    <group
+        android:translateX="-44.92301"
+        android:translateY="-88.91825">
+        <group
+            android:scaleX="0.2645833"
+            android:scaleY="0.2645833">
+            <path
+                android:pathData="M553.41016 405.58008v-20.4043c0 -24.06385 -20.72408 -43.4375 -46.4668 -43.4375h-17.81372m-249.39209 0h-17.81372c-25.74273 0 -46.4668 19.37365 -46.4668 43.4375v20.4043"
+                android:strokeColor="#000000"
+                android:strokeWidth="9.448819"
+                android:strokeLineCap="square" />
+        </group>
+        <group
+            android:scaleX="0.2645833"
+            android:scaleY="0.2645833">
+            <path
+                android:pathData="M175.45703 656.13086v20.12305c0 24.06385 20.72407 43.4375 46.4668 43.4375h17.81372m249.39209 0h17.81372c25.74272 0 46.4668 -19.37365 46.4668 -43.4375v-20.12305"
+                android:strokeColor="#000000"
+                android:strokeWidth="9.448819"
+                android:strokeLineCap="square" />
+        </group>
+    </group>
+</vector>

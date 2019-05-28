@@ -1,0 +1,133 @@
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorAccent">?colorPrimary</item>
+
+        <item name="android:colorForeground">?colorPrimary</item>
+        <item name="android:colorBackground">?colorControlNormal</item>
+        <item name="android:windowBackground">?android:colorBackground</item>
+        
+        <item name="android:textColorPrimary">?colorPrimary</item>
+        <item name="android:textColorTertiary">?android:textColorPrimary</item>
+        <item name="android:textColorSecondary">?android:textColorPrimary</item>
+        <item name="android:textColorPrimaryInverse">?colorControlNormal</item>
+
+        <item name="android:scrollbarSize">3dp</item>
+        <item name="android:scrollbarThumbVertical">?colorAccent</item>
+        <item name="android:scrollbarThumbHorizontal">?colorAccent</item>
+        <item name="android:selectableItemBackground">@drawable/selectable_item_bg</item>
+        
+        <item name="android:listPreferredItemHeight">56dp</item>
+        <item name="android:listPreferredItemPaddingStart">16dp</item>
+        <item name="android:listPreferredItemPaddingEnd">16dp</item>
+
+        <item name="checkboxStyle">@style/AppTheme.Checkbox</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
+        <item name="radioButtonStyle">@style/AppTheme.RadioButton</item>
+        <item name="imageButtonStyle">@style/AppTheme.ImageButton</item>
+        <item name="android:listViewStyle">@style/AppTheme.ListView</item>
+        <item name="preferenceTheme">@style/AppTheme.PreferenceThemeOverlay</item>
+
+        <item name="android:textAppearanceSmall">@style/AppTheme.TextAppearance.Small</item>
+        <item name="android:textAppearanceMedium">@style/AppTheme.TextAppearance.Medium</item>
+        <item name="android:textAppearanceLarge">@style/AppTheme.TextAppearance.Large</item>
+
+        <!-- Disabling over scroll glow for entire application -->
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+    <!-- Text appearance -->
+    <style name="AppTheme.TextAppearance.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="AppTheme.TextAppearance.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppTheme.TextAppearance.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Common components -->
+    <style name="AppTheme.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:button">@drawable/radio_button_button</item>
+        <item name="buttonCompat">@drawable/radio_button_button</item>
+    </style>
+
+    <style name="AppTheme.Checkbox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:button">@drawable/check_box_button</item>
+        <item name="buttonCompat">@drawable/check_box_button</item>
+    </style>
+
+    <style name="AppTheme.ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/image_button_bg</item>
+    </style>
+
+    <style name="AppTheme.ListView" parent="Widget.AppCompat.ListView">
+        <item name="android:divider">@color/divider</item>
+        <item name="android:dividerHeight">1dp</item>
+
+        <item name="android:padding">3dp</item>
+        <item name="android:background">@drawable/list_view_bg</item>
+        <item name="android:listSelector">?android:selectableItemBackground</item>
+    </style>
+
+    <!-- Alert Dialog -->
+    <style name="AppTheme.AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonBarStyle">@style/AppTheme.AlertDialog.ButtonBar</item>
+        <item name="buttonBarButtonStyle">@style/AppTheme.AlertDialog.ButtonBar.Button</item>
+
+        <item name="android:background">@drawable/alert_dialog_bg</item>
+        <item name="android:windowFrame">@drawable/alert_dialog_frame</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppTheme.AlertDialog.ButtonBar" parent="Widget.AppCompat.ButtonBar.AlertDialog">
+        <item name="android:minHeight">65dp</item>
+    </style>
+
+    <style name="AppTheme.AlertDialog.ButtonBar.Button" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:padding">15dp</item>
+        <item name="android:minHeight">0dp</item>
+
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/alert_dialog_button_color</item>
+        <item name="android:background">@drawable/alert_dialog_button_bg</item>
+    </style>
+
+    <!-- Preferences -->
+    <style name="AppTheme.PreferenceThemeOverlay" parent="PreferenceThemeOverlay">
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="AppTheme.PreferenceCategory">
+        <item name="android:background">?colorControlNormal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textAppearance">@style/AppTheme.TextAppearance.Large</item>
+    </style>
+</resources>
