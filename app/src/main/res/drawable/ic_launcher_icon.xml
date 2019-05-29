@@ -1,0 +1,61 @@
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="192dp"
+    android:height="192dp"
+    android:viewportWidth="192"
+    android:viewportHeight="192">
+  <path
+      android:pathData="M25.512,10L168.488,10A13.512,13.512 0,0 1,182 23.512L182,166.488A13.512,13.512 0,0 1,168.488 180L25.512,180A13.512,13.512 0,0 1,12 166.488L12,23.512A13.512,13.512 0,0 1,25.512 10z"
+      android:strokeWidth="1.11842108"
+      android:fillColor="#b5b5b5"
+      android:strokeColor="#00000000"
+      android:fillAlpha="1"/>
+  <path
+      android:pathData="M38.842,36.842l116.316,0l0,116.316l-116.316,0z"
+      android:strokeWidth="0"
+      android:fillColor="#ffffff"
+      android:strokeColor="#00000000"
+      android:fillAlpha="0.85781992"/>
+  <path
+      android:pathData="m51.745,114.845c0,2.936 1.678,5.977 4.718,8.86 4.876,4.613 13.631,7.444 23.487,7.444 17.93,0 29.411,-9.07 29.411,-23.172 0,-10.852 -6.448,-17.405 -19.765,-20.079l-9.961,-2.149c-6.658,-1.311 -9.699,-4.089 -9.699,-8.021 0,-4.509 3.984,-7.392 10.328,-7.392 5.4,0 9.646,2.097 13.316,6.134 2.202,2.097 4.456,3.093 6.711,3.093 4.037,0 6.763,-2.621 6.763,-6.448 0,-3.198 -1.625,-6.344 -4.718,-9.175 -4.823,-4.561 -13.106,-7.235 -22.281,-7.235 -16.776,0 -27.471,8.703 -27.471,22.438 0,10.957 6.344,17.615 19.24,20.341l9.856,2.254c7.549,1.625 10.695,4.089 10.695,8.074 0,4.928 -4.037,7.654 -11.534,7.654 -5.295,0 -10.485,-2.202 -14.784,-6.239 -2.883,-2.569 -5.033,-3.513 -7.549,-3.513 -3.722,0 -6.763,2.936 -6.763,7.13z"
+      android:strokeAlpha="1"
+      android:strokeLineJoin="miter"
+      android:strokeWidth="1"
+      android:fillColor="#000000"
+      android:strokeColor="#00000000"
+      android:fillAlpha="0.81516586"
+      android:strokeLineCap="butt"/>
+  <path
+      android:pathData="m128.601,130.101c5.505,0 8.598,-3.355 8.598,-9.332L137.199,66.822c0,-5.924 -3.146,-9.332 -8.703,-9.332 -5.557,0 -8.65,3.355 -8.65,9.332l0,53.946c0,5.924 3.198,9.332 8.755,9.332z"
+      android:strokeAlpha="1"
+      android:strokeLineJoin="miter"
+      android:strokeWidth="1"
+      android:fillColor="#000000"
+      android:strokeColor="#00000000"
+      android:fillAlpha="0.81516586"
+      android:strokeLineCap="butt"/>
+  <path
+      android:pathData="M0,0h192v192h-192z"
+      android:strokeAlpha="0.1"
+      android:strokeColor="#00000000"
+      android:fillAlpha="0.1">
+  </path>
+</vector>

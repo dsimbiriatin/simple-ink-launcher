@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Ink Launcher</string>
+    <string name="app_settings_label">Настройки</string>
+    <string name="auto_start_reader_app_summary">Автоматически запускать приложение для чтения после загрузки устройства</string>
+    <string name="auto_start_reader_app_title">Запускать автоматически</string>
+    <string name="default_reader_app_summary">Выберите приложение для чтения по умолчанию</string>
+    <string name="default_reader_app_title">Приложение по умолчанию</string>
+    <string name="hidden_applications_summary">Выберите приложения которые не будут отображаться на главном экране</string>
+    <string name="hidden_applications_title">Спрятать приложения</string>
+    <string name="icons_theme_default_label">По умолчанию</string>
+    <string name="icons_theme_summary">Пользовательская тема иконок</string>
+    <string name="launcher_preference_section">Главный экран</string>
+    <string name="reader_preference_section">Приложение для чтения</string>
+    <string name="icons_theme_title">Тема иконок</string>
+    <string name="sorting_strategy_title">Порядок отображения</string>
+    <string name="sorting_strategy_summary">Выберите в каком порядке приложения будут отображаться на главном экране</string>
+    <string name="total_item_count_label">Всего: %1$d</string>
+    <string name="reader_app_first_label">Приложение для чтения вначале</string>
+</resources>

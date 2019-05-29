@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <!-- Reader section -->
+    <string name="default_reader_app_key" translatable="false">defaultReaderApp</string>
+    <string name="default_reader_app_title">Default application</string>
+    <string name="default_reader_app_summary">Select reader application which will be default on this device</string>
+    <string name="default_reader_app_default_value" translatable="false">org.koreader.launcher/org.koreader.launcher.MainActivity</string>
+
+    <string name="reader_preference_section">Reader</string>
+    <string name="auto_start_reader_app_key" translatable="false">autoStartReaderApp</string>
+    <string name="auto_start_reader_app_title">Run on start up</string>
+    <bool name="auto_start_reader_app_default_value">false</bool>
+    <string name="auto_start_reader_app_summary">Automatically run reader application after device boots up</string>
+
+    <!-- Launcher section -->
+    <string name="launcher_preference_section">Launcher</string>
+    <string name="hidden_applications_key" translatable="false">hiddenApplications</string>
+    <string name="hidden_applications_title">Hide applications</string>
+    <string name="hidden_applications_summary">Define applications which will not be visible in the launcher</string>
+
+    <string name="sorting_strategy_key" translatable="false">sortingStrategy</string>
+    <string name="sorting_strategy_title">Sort By</string>
+    <string name="sorting_strategy_summary">Define how applications will be sorted in the launcher</string>
+    <string name="sorting_strategy_default_value" translatable="false">READER_APP_FIRST</string>
+    <string name="reader_app_first_label">Reader application first</string>
+
+    <string-array name="sorting_type_labels">
+        <item>@string/reader_app_first_label</item>
+        <item>A - Z</item>
+        <item>Z - A</item>
+    </string-array>
+
+    <string-array name="sorting_type_values">
+        <item>READER_APP_FIRST</item>
+        <item>A_Z</item>
+        <item>Z_A</item>
+    </string-array>
+
+    <array name="sorting_type_icons">
+        <item>@drawable/ic_sort_type_reader_first</item>
+        <item>@drawable/ic_sort_type_asc</item>
+        <item>@drawable/ic_sort_type_desc</item>
+    </array>
+
+    <string name="icons_theme_key" translatable="false">iconsTheme</string>
+    <string name="icons_theme_title">Icons theme</string>
+    <string name="icons_theme_summary">Define custom icons theme</string>
+    <string name="icons_theme_default_label">Default</string>
+</resources>
