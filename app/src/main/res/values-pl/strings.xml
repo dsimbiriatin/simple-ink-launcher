@@ -2,12 +2,12 @@
 <resources>
     <string name="app_name">Simple Ink Launcher</string>
     <string name="app_settings_label">Ustawienia</string>
-    <string name="auto_start_reader_app_summary">Automatycznie uruchamiać aplikację do czytania zaraz po uruchomieniu czytnika</string>
-    <string name="auto_start_reader_app_title">Uruchamiać automatycznie</string>
+    <string name="auto_start_reader_app_summary">Automatycznie uruchom aplikację do czytania po starcie</string>
+    <string name="auto_start_reader_app_title">Uruchamiaj automatycznie</string>
     <string name="default_reader_app_summary">Wybierz domyślną aplikację do czytania</string>
     <string name="default_reader_app_title">Domyślna aplikacja</string>
-    <string name="hidden_applications_summary">Wybierz aplikacji które nie będą wyświetlane na ekranie głównym</string>
-    <string name="hidden_applications_title">Ukryć aplikacje</string>
+    <string name="hidden_applications_summary">Wybierz aplikacje, które nie będą wyświetlane na ekranie głównym</string>
+    <string name="hidden_applications_title">Ukryj aplikacje</string>
     <string name="icons_theme_default_label">Domyślny</string>
     <string name="icons_theme_summary">Niestandardowy motyw ikon</string>
     <string name="launcher_preference_section">Ekran główny</string>
