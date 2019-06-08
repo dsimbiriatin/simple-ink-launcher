@@ -21,7 +21,7 @@ package org.ds.simple.ink.launcher;
 import android.os.Bundle;
 
 import org.ds.simple.ink.launcher.drawer.ApplicationDrawer;
-import org.ds.simple.ink.launcher.drawer.ApplicationDrawerToolbar;
+import org.ds.simple.ink.launcher.toolbar.ApplicationDrawerToolbar;
 
 import lombok.val;
 
@@ -52,7 +52,12 @@ public class LauncherMainActivity extends BaseLauncherActivity {
 
         applicationDrawerToolbar = findViewById(R.id.app_drawer_toolbar);
         applicationDrawerToolbar.setTotalItemsCount(applicationDrawer.getCount());
+        applicationDrawerToolbar.showWifiSwitch(applicationSettings.showWifiSwitch());
+        applicationDrawerToolbar.showBacklightSwitch(applicationSettings.showBacklightSwitch());
+
         applicationDrawer.registerOnTotalCountChangeListener(applicationDrawerToolbar);
+        applicationSettings.registerWifiSwitchEnabledChangeListener(applicationDrawerToolbar);
+        applicationSettings.registerBacklightSwitchEnabledChangeListener(applicationDrawerToolbar);
     }
 
     @Override

@@ -19,9 +19,7 @@
 package org.ds.simple.ink.launcher.apps;
 
 import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.IOException;
 import java.util.Iterator;
 
 import lombok.Data;
@@ -29,6 +27,7 @@ import lombok.NonNull;
 import lombok.val;
 
 import static org.ds.simple.ink.launcher.apps.AppFilterItems.*;
+import static org.ds.simple.ink.launcher.utils.Exceptions.execute;
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.START_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
@@ -83,20 +82,12 @@ class AppFilterItems implements Iterable<Item>, Iterator<Item> {
         return item;
     }
 
-    private int getEventType() {
-        try {
-            return parser.getEventType();
-        } catch (XmlPullParserException ex) {
-            return -1;
-        }
+    private int getNext() {
+        return execute(parser::next).orReturn(-1);
     }
 
-    private int getNext() {
-        try {
-            return parser.next();
-        } catch (IOException | XmlPullParserException ex) {
-            return -1;
-        }
+    private int getEventType() {
+        return execute(parser::getEventType).orReturn(-1);
     }
 
     @Data

@@ -41,7 +41,7 @@
         app:layout_constraintBottom_toTopOf="@+id/app_drawer_toolbar"
         />
 
-    <org.ds.simple.ink.launcher.drawer.ApplicationDrawerToolbar
+    <org.ds.simple.ink.launcher.toolbar.ApplicationDrawerToolbar
         android:id="@+id/app_drawer_toolbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"

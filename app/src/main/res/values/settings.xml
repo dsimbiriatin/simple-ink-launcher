@@ -64,4 +64,16 @@
     <string name="icons_theme_title">Icons theme</string>
     <string name="icons_theme_summary">Define custom icons theme</string>
     <string name="icons_theme_default_label">Default</string>
+
+    <!-- Toolbar section -->
+    <string name="toolbar_preference_section">Toolbar</string>
+    <string name="show_backlight_switch_key" translatable="false">showBacklightSwitch</string>
+    <string name="show_backlight_switch_title">Show backlight switch</string>
+    <string name="show_backlight_switch_summary">Adds backlight switch to launcher toolbar</string>
+    <bool name="show_backlight_switch_default_value">false</bool>
+
+    <string name="show_wifi_switch_key" translatable="false">showWifiSwitch</string>
+    <string name="show_wifi_switch_title">Show Wi-Fi switch</string>
+    <string name="show_wifi_switch_summary">Adds Wi-Fi switch to launcher toolbar</string>
+    <bool name="show_wifi_switch_default_value">false</bool>
 </resources>

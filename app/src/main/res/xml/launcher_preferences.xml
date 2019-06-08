@@ -74,4 +74,29 @@
             />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/toolbar_preference_section"
+        app:layout="@layout/preference_category_custom"
+        >
+
+        <CheckBoxPreference
+            app:key="@string/show_backlight_switch_key"
+            app:title="@string/show_backlight_switch_title"
+            app:summary="@string/show_backlight_switch_summary"
+            app:defaultValue="@bool/show_backlight_switch_default_value"
+            app:icon="@drawable/ic_backlight_switch"
+            app:layout="@layout/preference_custom"
+            />
+
+        <CheckBoxPreference
+            app:key="@string/show_wifi_switch_key"
+            app:title="@string/show_wifi_switch_title"
+            app:summary="@string/show_wifi_switch_summary"
+            app:defaultValue="@bool/show_wifi_switch_default_value"
+            app:icon="@drawable/ic_wifi_switch"
+            app:layout="@layout/preference_custom"
+            />
+
+    </PreferenceCategory>
 </androidx.preference.PreferenceScreen>

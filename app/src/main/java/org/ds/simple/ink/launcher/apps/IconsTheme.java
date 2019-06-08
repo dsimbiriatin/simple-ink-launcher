@@ -30,6 +30,8 @@ import java.util.Map;
 import lombok.NonNull;
 import lombok.val;
 
+import static org.ds.simple.ink.launcher.utils.Exceptions.execute;
+
 public class IconsTheme {
 
     /**
@@ -83,12 +85,8 @@ public class IconsTheme {
     }
 
     private Drawable loadDrawable(final String drawableName) {
-        try {
-            val id = iconResources.getIdentifier(drawableName, "drawable", packageName);
-            return (id > 0) ? iconResources.getDrawable(id) : null;
-        } catch (Resources.NotFoundException ex) {
-            return null;
-        }
+        val id = iconResources.getIdentifier(drawableName, "drawable", packageName);
+        return execute(() -> iconResources.getDrawable(id)).orReturn(null);
     }
 
     private boolean isNotInitialized() {

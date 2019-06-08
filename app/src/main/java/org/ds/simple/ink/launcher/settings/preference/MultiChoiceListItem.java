@@ -21,67 +21,42 @@ package org.ds.simple.ink.launcher.settings.preference;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.CheckBox;
 import android.widget.Checkable;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import org.ds.simple.ink.launcher.R;
+import org.ds.simple.ink.launcher.common.ViewCache;
 
 import lombok.NonNull;
 
 public class MultiChoiceListItem extends RelativeLayout implements Checkable {
 
-    private TextView label;
-    private ImageView icon;
-    private CheckBox itemSelector;
+    private final ViewCache children = new ViewCache(this);
 
     public MultiChoiceListItem(final Context context, final AttributeSet attrs) {
         super(context, attrs);
     }
 
     public void setIcon(@NonNull final Drawable icon) {
-        getIcon().setImageDrawable(icon);
+        children.getImageView(R.id.item_icon).setImageDrawable(icon);
     }
 
     public void setLabel(@NonNull final String label) {
-        getLabel().setText(label);
+        children.getTextView(R.id.item_label).setText(label);
     }
 
     @Override
     public void setChecked(final boolean checked) {
-        getItemSelector().setChecked(checked);
+        children.getCheckBox(R.id.item_selector).setChecked(checked);
     }
 
     @Override
     public boolean isChecked() {
-        return getItemSelector().isChecked();
+        return children.getCheckBox(R.id.item_selector).isChecked();
     }
 
     @Override
     public void toggle() {
-        getItemSelector().toggle();
-    }
-
-    private ImageView getIcon() {
-        if (icon == null) {
-            icon = findViewById(R.id.item_icon);
-        }
-        return icon;
-    }
-
-    private TextView getLabel() {
-        if (label == null) {
-            label = findViewById(R.id.item_label);
-        }
-        return label;
-    }
-
-    private CheckBox getItemSelector() {
-        if (itemSelector == null) {
-            itemSelector = findViewById(R.id.item_selector);
-        }
-        return itemSelector;
+        children.getCheckBox(R.id.item_selector).toggle();
     }
 }

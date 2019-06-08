@@ -24,7 +24,7 @@ import android.widget.ListView;
 
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.BaseLauncherActivity;
-import org.ds.simple.ink.launcher.adapter.BaseListAdapter;
+import org.ds.simple.ink.launcher.common.BaseListAdapter;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.ds.simple.ink.launcher.settings.preference.MultiChoiceListItem;
 import org.ds.simple.ink.launcher.settings.preference.MultiChoiceListPreference;
