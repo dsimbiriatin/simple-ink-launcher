@@ -51,7 +51,7 @@ public final class ComponentNameUtils {
     @NonNull
     public static String packageNameFrom(@Nullable final String flattenComponentName) {
         val parts = nullToEmpty(flattenComponentName).split(COMPONENT_NAME_SEPARATOR);
-        return (parts.length > 0) ? parts[0] : "";
+        return (parts.length == 2) ? parts[0] : "";
     }
 
     /**
