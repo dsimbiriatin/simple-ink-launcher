@@ -48,12 +48,12 @@ public class ApplicationInfo {
         private String label;
         private ComponentName componentName;
 
-        ApplicationInfoBuilder label(@NonNull final CharSequence label) {
+        public ApplicationInfoBuilder label(@NonNull final CharSequence label) {
             this.label = label.toString();
             return this;
         }
 
-        ApplicationInfoBuilder componentName(@NonNull final ComponentName componentName) {
+        public ApplicationInfoBuilder componentName(@NonNull final ComponentName componentName) {
             this.componentName = componentName;
             return this;
         }
