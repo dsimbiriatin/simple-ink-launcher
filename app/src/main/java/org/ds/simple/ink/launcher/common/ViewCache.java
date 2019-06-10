@@ -31,10 +31,15 @@ import lombok.val;
 public class ViewCache {
 
     private final View parent;
-    private final SparseArray<View> cachedChildren = new SparseArray<>();
+    private final SparseArray<View> cachedChildren;
 
     public ViewCache(@NonNull final View parent) {
+        this(parent, new SparseArray<>());
+    }
+
+    ViewCache(final View parent, final SparseArray<View> cachedChildren) {
         this.parent = parent;
+        this.cachedChildren = cachedChildren;
     }
 
     public View getView(final int id) {
