@@ -18,6 +18,8 @@
 
 package org.ds.simple.ink.launcher.sorting.strategy;
 
+import com.google.common.collect.ImmutableList;
+
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,7 +38,7 @@ public class NameInAscOrderTest {
     @Test
     public void shouldOrderApplicationInfosByLabelInAscendingOrder() {
         // given
-        final List<ApplicationInfo> unorderedApplicationInfoList = newArrayList(
+        final List<ApplicationInfo> unorderedApplicationInfoList = ImmutableList.of(
                 ApplicationInfo.builder().label("Messages").build(),
                 ApplicationInfo.builder().label("Browser").build(),
                 ApplicationInfo.builder().label("Phone").build(),

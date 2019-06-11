@@ -18,6 +18,8 @@
 
 package org.ds.simple.ink.launcher.sorting.strategy;
 
+import com.google.common.collect.ImmutableList;
+
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +28,6 @@ import org.robolectric.RobolectricTestRunner;
 import java.util.Collections;
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static org.ds.simple.ink.launcher.utils.ComponentNameUtils.fromFlattenString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -37,7 +38,7 @@ public class ReaderApplicationFirstTest {
     @Test
     public void shouldOrderApplicationInfosByLabelHavingDefaultReaderApplicationFirst() {
         // given
-        final List<ApplicationInfo> unorderedApplicationInfoList = newArrayList(
+        final List<ApplicationInfo> unorderedApplicationInfoList = ImmutableList.of(
                 ApplicationInfo.builder().componentName(fromFlattenString("test.android/MessagesActivity")).build(),
                 ApplicationInfo.builder().componentName(fromFlattenString("test.android/BrowserActivity")).build(),
                 ApplicationInfo.builder().componentName(fromFlattenString("test.android/PhoneActivity")).build(),

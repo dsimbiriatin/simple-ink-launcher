@@ -18,6 +18,8 @@
 
 package org.ds.simple.ink.launcher.sorting.strategy;
 
+import com.google.common.collect.ImmutableList;
+
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +28,6 @@ import org.junit.runners.JUnit4;
 import java.util.Collections;
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -36,7 +37,7 @@ public class NameInDescOrderTest {
     @Test
     public void shouldOrderApplicationInfosByLabelInDescendingOrder() {
         // given
-        final List<ApplicationInfo> unorderedApplicationInfoList = newArrayList(
+        final List<ApplicationInfo> unorderedApplicationInfoList = ImmutableList.of(
                 ApplicationInfo.builder().label("Messages").build(),
                 ApplicationInfo.builder().label("Browser").build(),
                 ApplicationInfo.builder().label("Phone").build(),
