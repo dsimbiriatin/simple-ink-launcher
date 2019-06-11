@@ -18,7 +18,7 @@
 
 package org.ds.simple.ink.launcher.utils;
 
-import lombok.Value;
+import com.google.common.base.Optional;
 import lombok.val;
 
 public final class Exceptions {
@@ -32,23 +32,12 @@ public final class Exceptions {
         // do not instantiate
     }
 
-    public static <T> ExecutionResult<T> execute(final MethodWithThrows<T> method) {
+    public static <T> Optional<T> execute(final MethodWithThrows<T> method) {
         try {
             val result = method.execute();
-            return new ExecutionResult<>(result, true);
+            return Optional.of(result);
         } catch (Exception ex) {
-            return new ExecutionResult<>(null, false);
-        }
-    }
-
-    @Value
-    public static class ExecutionResult<T> {
-
-        private T resultObject;
-        private boolean success;
-
-        public T orReturn(final T alternativeValue) {
-            return success ? resultObject : alternativeValue;
+            return Optional.absent();
         }
     }
 }

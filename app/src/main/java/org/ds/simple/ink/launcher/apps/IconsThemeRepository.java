@@ -148,7 +148,7 @@ public class IconsThemeRepository implements ApplicationSettings.OnIconsThemeCha
     }
 
     private Resources loadThemeResources(final String packageName) {
-        return execute(() -> packageManager.getResourcesForApplication(packageName)).orReturn(null);
+        return execute(() -> packageManager.getResourcesForApplication(packageName)).orNull();
     }
 
     private XmlPullParser loadFromAssetsDirectory(final Resources resources) {

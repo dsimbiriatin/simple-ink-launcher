@@ -83,11 +83,11 @@ class AppFilterItems implements Iterable<Item>, Iterator<Item> {
     }
 
     private int getNext() {
-        return execute(parser::next).orReturn(-1);
+        return execute(parser::next).or(-1);
     }
 
     private int getEventType() {
-        return execute(parser::getEventType).orReturn(-1);
+        return execute(parser::getEventType).or(-1);
     }
 
     @Data

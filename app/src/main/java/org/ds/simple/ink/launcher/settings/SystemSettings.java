@@ -56,7 +56,7 @@ public class SystemSettings {
     }
 
     public int getScreenBrightnessValue() {
-        return execute(() -> Settings.System.getInt(getContentResolver(), SCREEN_BRIGHTNESS)).orReturn(-1);
+        return execute(() -> Settings.System.getInt(getContentResolver(), SCREEN_BRIGHTNESS)).or(-1);
     }
 
     public void enableManualBrightnessControl() {
