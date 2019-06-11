@@ -44,7 +44,7 @@ public class BacklightSwitch extends AppCompatImageButton {
         setOnClickListener(new BacklightController(settings, this));
     }
 
-    private AlertDialog writePermissionRequestDialog() {
+    AlertDialog writePermissionRequestDialog() {
         val resources = getResources();
         return new AlertDialog.Builder(getContext())
                 .setTitle(resources.getString(R.string.write_permissions_request_title))

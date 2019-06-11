@@ -25,20 +25,18 @@ import android.view.View;
 
 import androidx.appcompat.widget.AppCompatImageButton;
 
+import lombok.RequiredArgsConstructor;
 import lombok.val;
 
 import static android.content.Context.WIFI_SERVICE;
 
 public class WifiSwitch extends AppCompatImageButton {
 
-    private final WifiToasts wifiToasts;
-    private final WifiManager wifiManager;
-
     public WifiSwitch(final Context context, final AttributeSet attrs) {
         super(context, attrs);
-        this.wifiManager = getWifiManager(context);
-        this.wifiToasts = new WifiToasts(context);
-        setOnClickListener(new WifiController());
+        val wifiToasts = new WifiToasts(context);
+        val wifiManager = getWifiManager(context);
+        setOnClickListener(new WifiController(wifiToasts, wifiManager));
     }
 
     private WifiManager getWifiManager(final Context context) {
@@ -46,7 +44,11 @@ public class WifiSwitch extends AppCompatImageButton {
         return (WifiManager) appContext.getSystemService(WIFI_SERVICE);
     }
 
-    private class WifiController implements View.OnClickListener {
+    @RequiredArgsConstructor
+    static class WifiController implements View.OnClickListener {
+
+        private final WifiToasts wifiToasts;
+        private final WifiManager wifiManager;
 
         @Override
         public void onClick(final View view) {

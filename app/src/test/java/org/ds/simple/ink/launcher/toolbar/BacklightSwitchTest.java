@@ -20,12 +20,14 @@ package org.ds.simple.ink.launcher.toolbar;
 
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
+
 import org.ds.simple.ink.launcher.settings.SystemSettings;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.stubbing.Answer;
-import org.robolectric.RobolectricTestRunner;
+import org.junit.runners.JUnit4;
 
 import lombok.val;
 
@@ -37,7 +39,7 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.BDDMockito.willAnswer;
 import static org.mockito.Mockito.mock;
 
-@RunWith(RobolectricTestRunner.class)
+@RunWith(JUnit4.class)
 public class BacklightSwitchTest {
 
     @Test
@@ -87,10 +89,36 @@ public class BacklightSwitchTest {
         then(settings).should().setScreenBrightnessTo(30);
     }
 
+    @Test
+    public void showsNotificationDialogWhenLauncherDoesNotHaveWritePermissionsToSystemSettings() {
+        // given
+        val backlightSwitch = givenDefaultBacklightSwitch();
+        val settings = givenSystemSettingsWithoutPermissions();
+        val controller = new BacklightSwitch.BacklightController(settings, backlightSwitch);
+
+        // when
+        controller.onClick(mock(View.class));
+
+        // then
+        then(backlightSwitch.writePermissionRequestDialog()).should().show();
+    }
+
     private SystemSettings givenSettingsWithBrightnessValue(final int value) {
         val settings = systemSettingsWithPermissions();
         given(settings.getScreenBrightnessValue()).willReturn(value);
         return settings;
+    }
+
+    private SystemSettings givenSystemSettingsWithoutPermissions() {
+        val settings = mock(SystemSettings.class);
+        given(settings.hasWritePermission()).willReturn(false);
+        return settings;
+    }
+
+    private BacklightSwitch givenDefaultBacklightSwitch() {
+        val backlightSwitch = mock(BacklightSwitch.class);
+        given(backlightSwitch.writePermissionRequestDialog()).willReturn(mock(AlertDialog.class));
+        return backlightSwitch;
     }
 
     private SystemSettings systemSettingsWithPermissions() {
