@@ -40,8 +40,8 @@
     <string name="show_wifi_switch_summary">Отображать переключатель Wi-Fi на панели инструментов</string>
     <string name="show_backlight_switch_summary">Отображать переключатель подсветки экрана на панели инструментов</string>
     <string name="ok_button">ОК</string>
-    <string name="wifi_disabled">Wi-Fi включён</string>
-    <string name="wifi_enabled">Wi-Fi выключен</string>
+    <string name="wifi_disabled">Wi-Fi выключен</string>
+    <string name="wifi_enabled">Wi-Fi включён</string>
     <string name="write_permissions_request_message">Для контроля уровня яркости подсветки экрана необходимы дополнительные права на изменение системных настроек.</string>
     <string name="write_permissions_request_title">Запрос прав на изменение системных настроек</string>
     <string name="toolbar_preference_section">Панель инструментов</string>

@@ -41,8 +41,8 @@
     <string name="show_wifi_switch_title">Przełącznik sieci Wi-Fi</string>
     <string name="show_wifi_switch_summary">Pokazuj przełącznik sieci Wi-Fi na pasku narzędzi</string>
     <string name="toolbar_preference_section">Pasek narzędzi</string>
-    <string name="wifi_disabled">Sieć Wi-Fi jest włączona</string>
-    <string name="wifi_enabled">Sieć Wi-Fi jest wyłączona</string>
+    <string name="wifi_disabled">Sieć Wi-Fi jest wyłączona</string>
+    <string name="wifi_enabled">Sieć Wi-Fi jest włączona</string>
     <string name="write_permissions_request_title">Pozwolenie na nadpisywanie ustawień systemu</string>
     <string name="write_permissions_request_message">Regulacja poziomu jasności ekranu wymaga dodatkowych uprawnień na nadpisywanie ustawień systemu.</string>
 </resources>
