@@ -43,7 +43,7 @@ import static org.mockito.Mockito.mock;
 public class BacklightSwitchTest {
 
     @Test
-    public void shouldSwitchToMinimalBrightnessWhenCurrentValueIsMoreThatMinimalOne() {
+    public void shouldSwitchToMinimalBrightnessWhenCurrentValueIsMoreThanMinimalOne() {
         // given
         val settings = givenSettingsWithBrightnessValue(50);
         val controller = new BacklightSwitch.BacklightController(settings, null);
