@@ -33,7 +33,6 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 @RunWith(RobolectricTestRunner.class)
 public class ViewCacheTest {
@@ -57,7 +56,7 @@ public class ViewCacheTest {
         val secondTime = viewCache.getView(1);
 
         // then: this view will be returned from the cache
-        verifyNoMoreInteractions(parent);
+        then(parent).shouldHaveNoMoreInteractions();
         assertThat(secondTime, is(notNullValue()));
         assertThat(cachedChildren.size(), is(1));
     }

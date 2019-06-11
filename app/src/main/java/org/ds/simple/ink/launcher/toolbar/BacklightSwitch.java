@@ -28,6 +28,7 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.settings.SystemSettings;
 
+import lombok.RequiredArgsConstructor;
 import lombok.val;
 
 import static org.ds.simple.ink.launcher.settings.SystemSettings.BRIGHTNESS_MAX;
@@ -40,7 +41,7 @@ public class BacklightSwitch extends AppCompatImageButton {
     public BacklightSwitch(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         this.settings = new SystemSettings(context);
-        setOnClickListener(new BacklightController());
+        setOnClickListener(new BacklightController(settings, this));
     }
 
     private AlertDialog writePermissionRequestDialog() {
@@ -52,9 +53,12 @@ public class BacklightSwitch extends AppCompatImageButton {
                 .create();
     }
 
-    private class BacklightController implements View.OnClickListener {
+    @RequiredArgsConstructor
+    static class BacklightController implements View.OnClickListener {
 
         private int previous;
+        private final SystemSettings settings;
+        private final BacklightSwitch backlightSwitch;
 
         @Override
         public void onClick(final View view) {
@@ -62,7 +66,7 @@ public class BacklightSwitch extends AppCompatImageButton {
                 settings.enableManualBrightnessControl();
                 settings.setScreenBrightnessTo(nextValue());
             } else {
-                writePermissionRequestDialog().show();
+                backlightSwitch.writePermissionRequestDialog().show();
             }
         }
 
