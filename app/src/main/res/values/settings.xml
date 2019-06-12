@@ -91,4 +91,9 @@
         <item>TOP</item>
         <item>BOTTOM</item>
     </string-array>
+
+    <array name="toolbar_location_icons">
+        <item>@drawable/ic_toolbar_location_top</item>
+        <item>@drawable/ic_toolbar_location_bottom</item>
+    </array>
 </resources>

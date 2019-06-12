@@ -56,6 +56,8 @@ public class LauncherPreferencesFragment extends PreferenceFragmentCompat {
             showFragment(new DefaultReaderAppFragment(key));
         } else if (key.equals(getString(R.string.icons_theme_key))) {
             showFragment(new IconsThemeFragment(key));
+        } else if (key.equals(getString(R.string.toolbar_location_key))) {
+            showFragment(new ToolbarLocationFragment(key));
         } else if (key.equals(getString(R.string.sorting_strategy_key))) {
             showFragment(new AppDrawerSortingFragment(key));
         }
