@@ -20,6 +20,8 @@ package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.widget.ListView;
 
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ import lombok.AllArgsConstructor;
 import lombok.val;
 
 @AllArgsConstructor
-class ListSelections<T> {
+class ListSelections<T extends PreferenceListItem> {
 
     private final ListView listView;
 
@@ -57,7 +59,7 @@ class ListSelections<T> {
         return (T) listView.getItemAtPosition(position);
     }
 
-    static <T> ListSelections<T> countSelectionsFor(final ListView applicationListView) {
+    static <T extends PreferenceListItem> ListSelections<T> countSelectionsFor(final ListView applicationListView) {
         return new ListSelections<>(applicationListView);
     }
 }
