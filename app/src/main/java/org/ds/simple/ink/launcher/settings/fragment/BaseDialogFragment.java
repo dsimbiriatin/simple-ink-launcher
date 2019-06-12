@@ -30,10 +30,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.preference.DialogPreference;
 import androidx.preference.PreferenceDialogFragmentCompat;
 
 import org.ds.simple.ink.launcher.R;
+import org.ds.simple.ink.launcher.settings.preference.LauncherDialogPreference;
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ import lombok.val;
 import static android.content.DialogInterface.BUTTON_POSITIVE;
 import static org.ds.simple.ink.launcher.settings.fragment.DialogFragmentSize.resize;
 
-public abstract class BaseDialogFragment<T, P extends DialogPreference> extends PreferenceDialogFragmentCompat {
+public abstract class BaseDialogFragment<T extends PreferenceListItem, P extends LauncherDialogPreference> extends PreferenceDialogFragmentCompat {
 
     ListSelections<T> listSelections;
     private boolean clickOnItemDismissEnabled;
@@ -80,6 +81,16 @@ public abstract class BaseDialogFragment<T, P extends DialogPreference> extends 
         listView.setAdapter(createListAdapter(context, currentItems));
         restorePreviousSelections(listView, currentItems);
         return listView;
+    }
+
+    private void restorePreviousSelections(final ListView listView, final List<T> currentItems) {
+        val preference = getPreference();
+        for (int i = 0; i < currentItems.size(); ++i) {
+            val item = currentItems.get(i);
+            if (preference.wasSelectedPreviously(item.getValue())) {
+                listView.setItemChecked(i, true);
+            }
+        }
     }
 
     @Override
@@ -126,5 +137,4 @@ public abstract class BaseDialogFragment<T, P extends DialogPreference> extends 
 
     protected abstract List<T> readCurrentItems(final Context context);
     protected abstract ListAdapter createListAdapter(final Context context, final List<T> currentItems);
-    protected abstract void restorePreviousSelections(final ListView listView, final List<T> currentItems);
 }

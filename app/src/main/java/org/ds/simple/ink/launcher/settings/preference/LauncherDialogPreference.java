@@ -16,22 +16,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.ds.simple.ink.launcher.sorting;
+package org.ds.simple.ink.launcher.settings.preference;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.util.AttributeSet;
 
-import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
+import androidx.preference.DialogPreference;
 
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import lombok.Value;
+public abstract class LauncherDialogPreference extends DialogPreference implements SelectionStatePreference<String> {
 
-@Value
-@ToString(exclude = "icon")
-@EqualsAndHashCode(of = "value")
-public class SortingType implements PreferenceListItem {
-
-    String label;
-    String value;
-    Drawable icon;
+    LauncherDialogPreference(final Context context, final AttributeSet attrs) {
+        super(context, attrs);
+    }
 }

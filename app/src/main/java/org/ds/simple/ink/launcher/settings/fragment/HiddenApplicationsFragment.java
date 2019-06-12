@@ -53,21 +53,10 @@ public class HiddenApplicationsFragment extends BaseDialogFragment<ApplicationIn
     }
 
     @Override
-    protected void restorePreviousSelections(final ListView listView, final List<ApplicationInfo> currentItems) {
-        val preference = getPreference();
-        for (int i = 0; i < currentItems.size(); ++i) {
-            val applicationInfo = currentItems.get(i);
-            if (preference.wasSelectedPreviously(applicationInfo.getFlattenName())) {
-                listView.setItemChecked(i, true);
-            }
-        }
-    }
-
-    @Override
     public void onDialogClosed(final boolean positiveResult) {
         if (positiveResult) {
             val selected = from(listSelections.getSelections())
-                    .transform(ApplicationInfo::getFlattenName)
+                    .transform(ApplicationInfo::getValue)
                     .toSet();
 
             getPreference().storeNewSelections(selected);

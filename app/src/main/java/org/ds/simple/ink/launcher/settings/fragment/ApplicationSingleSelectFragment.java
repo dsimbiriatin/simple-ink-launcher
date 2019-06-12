@@ -20,7 +20,6 @@ package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.content.Context;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.common.BaseListAdapter;
@@ -45,22 +44,10 @@ public abstract class ApplicationSingleSelectFragment extends BaseDialogFragment
     }
 
     @Override
-    protected void restorePreviousSelections(final ListView listView, final List<ApplicationInfo> currentItems) {
-        val preference = getPreference();
-        for (int i = 0; i < currentItems.size(); ++i) {
-            val applicationInfo = currentItems.get(i);
-            if (preference.wasSelectedPreviously(applicationInfo.getFlattenName())) {
-                listView.setItemChecked(i, true);
-                break;
-            }
-        }
-    }
-
-    @Override
     public void onDialogClosed(final boolean positiveResult) {
         if (positiveResult && listSelections.hasOneSelection()) {
             val selected = listSelections.getSelection();
-            getPreference().storeNewSelection(selected.getFlattenName());
+            getPreference().storeNewSelection(selected.getValue());
         }
     }
 

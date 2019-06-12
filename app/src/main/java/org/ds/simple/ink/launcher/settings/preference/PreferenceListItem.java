@@ -16,22 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.ds.simple.ink.launcher.sorting;
+package org.ds.simple.ink.launcher.settings.preference;
 
 import android.graphics.drawable.Drawable;
 
-import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
+public interface PreferenceListItem {
 
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import lombok.Value;
-
-@Value
-@ToString(exclude = "icon")
-@EqualsAndHashCode(of = "value")
-public class SortingType implements PreferenceListItem {
-
-    String label;
-    String value;
-    Drawable icon;
+    String getLabel();
+    String getValue();
+    Drawable getIcon();
 }

@@ -20,7 +20,6 @@ package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.content.Context;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.common.BaseListAdapter;
@@ -58,18 +57,6 @@ public class AppDrawerSortingFragment extends BaseDialogFragment<SortingType, Si
     @Override
     protected ListAdapter createListAdapter(final Context context, final List<SortingType> currentItems) {
         return new AppDrawerSortingTypeAdapter(context, currentItems);
-    }
-
-    @Override
-    protected void restorePreviousSelections(final ListView listView, final List<SortingType> currentItems) {
-        val preference = getPreference();
-        for (int i = 0; i < currentItems.size(); ++i) {
-            val sortingType = currentItems.get(i);
-            if (preference.wasSelectedPreviously(sortingType.getValue())) {
-                listView.setItemChecked(i, true);
-                break;
-            }
-        }
     }
 
     @Override
