@@ -83,16 +83,6 @@ public abstract class BaseDialogFragment<T extends PreferenceListItem, P extends
         return listView;
     }
 
-    private void restorePreviousSelections(final ListView listView, final List<T> currentItems) {
-        val preference = getPreference();
-        for (int i = 0; i < currentItems.size(); ++i) {
-            val item = currentItems.get(i);
-            if (preference.wasSelectedPreviously(item.getValue())) {
-                listView.setItemChecked(i, true);
-            }
-        }
-    }
-
     @Override
     @SuppressLint("InflateParams")
     protected void onPrepareDialogBuilder(final AlertDialog.Builder builder) {
@@ -137,4 +127,5 @@ public abstract class BaseDialogFragment<T extends PreferenceListItem, P extends
 
     protected abstract List<T> readCurrentItems(final Context context);
     protected abstract ListAdapter createListAdapter(final Context context, final List<T> currentItems);
+    protected abstract void restorePreviousSelections(final ListView listView, final List<T> currentItems);
 }

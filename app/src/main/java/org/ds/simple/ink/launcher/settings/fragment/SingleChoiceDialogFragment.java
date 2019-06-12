@@ -20,8 +20,10 @@ package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.content.Context;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 
-import org.ds.simple.ink.launcher.apps.ApplicationInfo;
+import org.ds.simple.ink.launcher.R;
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
 import org.ds.simple.ink.launcher.settings.preference.PreferenceListItemAdapter;
 import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference;
 
@@ -29,16 +31,28 @@ import java.util.List;
 
 import lombok.val;
 
-public abstract class ApplicationSingleSelectFragment extends BaseDialogFragment<ApplicationInfo, SingleChoiceListPreference> {
+public abstract class SingleChoiceDialogFragment<T extends PreferenceListItem> extends BaseDialogFragment<T, SingleChoiceListPreference> {
 
-    ApplicationSingleSelectFragment(final String key) {
+    SingleChoiceDialogFragment(final String key) {
         super(key);
         setClickOnItemDismissEnabled(true);
     }
 
     @Override
-    protected ListAdapter createListAdapter(final Context context, final List<ApplicationInfo> currentItems) {
-        return PreferenceListItemAdapter.singleSelect(context, currentItems);
+    protected ListAdapter createListAdapter(final Context context, final List<T> currentItems) {
+        return new PreferenceListItemAdapter<>(context, R.layout.single_select_list_item, currentItems);
+    }
+
+    @Override
+    protected void restorePreviousSelections(final ListView listView, final List<T> currentItems) {
+        val preference = getPreference();
+        for (int i = 0; i < currentItems.size(); ++i) {
+            val item = currentItems.get(i);
+            if (preference.wasSelectedPreviously(item.getValue())) {
+                listView.setItemChecked(i, true);
+                break;
+            }
+        }
     }
 
     @Override

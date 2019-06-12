@@ -19,44 +19,20 @@
 package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.content.Context;
-import android.widget.ListAdapter;
 
 import org.ds.simple.ink.launcher.BaseLauncherActivity;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
-import org.ds.simple.ink.launcher.settings.preference.MultiChoiceListPreference;
-import org.ds.simple.ink.launcher.settings.preference.PreferenceListItemAdapter;
 
 import java.util.List;
 
-import lombok.val;
-
-import static com.google.common.collect.FluentIterable.from;
-
-public class HiddenApplicationsFragment extends BaseDialogFragment<ApplicationInfo, MultiChoiceListPreference> {
+public class HiddenApplicationsFragment extends MultiChoiceDialogFragment<ApplicationInfo> {
 
     HiddenApplicationsFragment(final String key) {
         super(key);
-        setClickOnItemDismissEnabled(false);
     }
 
     @Override
     protected List<ApplicationInfo> readCurrentItems(final Context context) {
         return ((BaseLauncherActivity) context).getApplicationRepository().listAll(false);
-    }
-
-    @Override
-    protected ListAdapter createListAdapter(final Context context, final List<ApplicationInfo> currentItems) {
-        return PreferenceListItemAdapter.multiSelect(context, currentItems);
-    }
-
-    @Override
-    public void onDialogClosed(final boolean positiveResult) {
-        if (positiveResult) {
-            val selected = from(listSelections.getSelections())
-                    .transform(ApplicationInfo::getValue)
-                    .toSet();
-
-            getPreference().storeNewSelections(selected);
-        }
     }
 }

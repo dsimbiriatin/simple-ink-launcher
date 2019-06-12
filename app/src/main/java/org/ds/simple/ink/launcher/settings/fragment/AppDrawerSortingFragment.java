@@ -19,11 +19,8 @@
 package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.content.Context;
-import android.widget.ListAdapter;
 
 import org.ds.simple.ink.launcher.R;
-import org.ds.simple.ink.launcher.settings.preference.PreferenceListItemAdapter;
-import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference;
 import org.ds.simple.ink.launcher.sorting.SortingType;
 
 import java.util.ArrayList;
@@ -31,11 +28,10 @@ import java.util.List;
 
 import lombok.val;
 
-public class AppDrawerSortingFragment extends BaseDialogFragment<SortingType, SingleChoiceListPreference> {
+public class AppDrawerSortingFragment extends SingleChoiceDialogFragment<SortingType> {
 
     AppDrawerSortingFragment(final String key) {
         super(key);
-        setClickOnItemDismissEnabled(true);
     }
 
     @Override
@@ -51,18 +47,5 @@ public class AppDrawerSortingFragment extends BaseDialogFragment<SortingType, Si
         }
         icons.recycle();
         return sortingTypes;
-    }
-
-    @Override
-    protected ListAdapter createListAdapter(final Context context, final List<SortingType> currentItems) {
-        return PreferenceListItemAdapter.singleSelect(context, currentItems);
-    }
-
-    @Override
-    public void onDialogClosed(boolean positiveResult) {
-        if (positiveResult) {
-            val selected = listSelections.getSelection();
-            getPreference().storeNewSelection(selected.getValue());
-        }
     }
 }

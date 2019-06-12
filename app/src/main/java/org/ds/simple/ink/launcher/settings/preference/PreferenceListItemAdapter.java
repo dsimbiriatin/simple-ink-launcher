@@ -20,16 +20,13 @@ package org.ds.simple.ink.launcher.settings.preference;
 
 import android.content.Context;
 
-import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.common.BaseListAdapter;
 
 import java.util.List;
 
-import lombok.NonNull;
-
 public class PreferenceListItemAdapter<T extends PreferenceListItem> extends BaseListAdapter<PreferenceListItemView, T> {
 
-    private PreferenceListItemAdapter(final Context context, final int itemViewId, final List<T> items) {
+    public PreferenceListItemAdapter(final Context context, final int itemViewId, final List<T> items) {
         super(context, itemViewId, items);
     }
 
@@ -38,13 +35,5 @@ public class PreferenceListItemAdapter<T extends PreferenceListItem> extends Bas
         itemView.setIcon(item.getIcon());
         itemView.setLabel(item.getLabel());
         return itemView;
-    }
-
-    public static <T extends PreferenceListItem> PreferenceListItemAdapter<T> multiSelect(@NonNull final Context context, @NonNull final List<T> items) {
-        return new PreferenceListItemAdapter<>(context, R.layout.multi_select_list_item, items);
-    }
-
-    public static <T extends PreferenceListItem> PreferenceListItemAdapter<T> singleSelect(@NonNull final Context context, @NonNull final List<T> items) {
-        return new PreferenceListItemAdapter<>(context, R.layout.single_select_list_item, items);
     }
 }
