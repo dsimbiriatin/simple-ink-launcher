@@ -21,10 +21,8 @@ package org.ds.simple.ink.launcher.settings.fragment;
 import android.content.Context;
 import android.widget.ListAdapter;
 
-import org.ds.simple.ink.launcher.R;
-import org.ds.simple.ink.launcher.common.BaseListAdapter;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
-import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListItem;
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItemAdapter;
 import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference;
 
 import java.util.List;
@@ -40,7 +38,7 @@ public abstract class ApplicationSingleSelectFragment extends BaseDialogFragment
 
     @Override
     protected ListAdapter createListAdapter(final Context context, final List<ApplicationInfo> currentItems) {
-        return new ApplicationSingleSelectAdapter(context, currentItems);
+        return PreferenceListItemAdapter.singleSelect(context, currentItems);
     }
 
     @Override
@@ -48,20 +46,6 @@ public abstract class ApplicationSingleSelectFragment extends BaseDialogFragment
         if (positiveResult && listSelections.hasOneSelection()) {
             val selected = listSelections.getSelection();
             getPreference().storeNewSelection(selected.getValue());
-        }
-    }
-
-    private static class ApplicationSingleSelectAdapter extends BaseListAdapter<SingleChoiceListItem, ApplicationInfo> {
-
-        private ApplicationSingleSelectAdapter(final Context context, final List<ApplicationInfo> items) {
-            super(context, R.layout.single_select_list_item, items);
-        }
-
-        @Override
-        protected SingleChoiceListItem getView(final SingleChoiceListItem itemView, final ApplicationInfo item) {
-            itemView.setIcon(item.getIcon());
-            itemView.setLabel(item.getLabel());
-            return itemView;
         }
     }
 }

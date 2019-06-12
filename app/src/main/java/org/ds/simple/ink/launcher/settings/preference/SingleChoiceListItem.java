@@ -22,14 +22,13 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.Checkable;
-import android.widget.RelativeLayout;
 
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.common.ViewCache;
 
 import lombok.NonNull;
 
-public class SingleChoiceListItem extends RelativeLayout implements Checkable {
+public class SingleChoiceListItem extends PreferenceListItemView implements Checkable {
 
     private final ViewCache children = new ViewCache(this);
 
@@ -37,10 +36,12 @@ public class SingleChoiceListItem extends RelativeLayout implements Checkable {
         super(context, attrs);
     }
 
+    @Override
     public void setIcon(@NonNull final Drawable icon) {
         children.getImageView(R.id.item_icon).setImageDrawable(icon);
     }
 
+    @Override
     public void setLabel(@NonNull final String label) {
         children.getTextView(R.id.item_label).setText(label);
     }

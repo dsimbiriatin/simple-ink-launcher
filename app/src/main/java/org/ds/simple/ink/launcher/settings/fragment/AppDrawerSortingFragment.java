@@ -22,8 +22,7 @@ import android.content.Context;
 import android.widget.ListAdapter;
 
 import org.ds.simple.ink.launcher.R;
-import org.ds.simple.ink.launcher.common.BaseListAdapter;
-import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListItem;
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItemAdapter;
 import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference;
 import org.ds.simple.ink.launcher.sorting.SortingType;
 
@@ -56,7 +55,7 @@ public class AppDrawerSortingFragment extends BaseDialogFragment<SortingType, Si
 
     @Override
     protected ListAdapter createListAdapter(final Context context, final List<SortingType> currentItems) {
-        return new AppDrawerSortingTypeAdapter(context, currentItems);
+        return PreferenceListItemAdapter.singleSelect(context, currentItems);
     }
 
     @Override
@@ -64,20 +63,6 @@ public class AppDrawerSortingFragment extends BaseDialogFragment<SortingType, Si
         if (positiveResult) {
             val selected = listSelections.getSelection();
             getPreference().storeNewSelection(selected.getValue());
-        }
-    }
-
-    private static class AppDrawerSortingTypeAdapter extends BaseListAdapter<SingleChoiceListItem, SortingType> {
-
-        private AppDrawerSortingTypeAdapter(final Context context, final List<SortingType> items) {
-            super(context, R.layout.single_select_list_item, items);
-        }
-
-        @Override
-        protected SingleChoiceListItem getView(final SingleChoiceListItem itemView, final SortingType item) {
-            itemView.setIcon(item.getIcon());
-            itemView.setLabel(item.getLabel());
-            return itemView;
         }
     }
 }

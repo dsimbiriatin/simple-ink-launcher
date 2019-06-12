@@ -20,14 +20,11 @@ package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.content.Context;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 
-import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.BaseLauncherActivity;
-import org.ds.simple.ink.launcher.common.BaseListAdapter;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
-import org.ds.simple.ink.launcher.settings.preference.MultiChoiceListItem;
 import org.ds.simple.ink.launcher.settings.preference.MultiChoiceListPreference;
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItemAdapter;
 
 import java.util.List;
 
@@ -49,7 +46,7 @@ public class HiddenApplicationsFragment extends BaseDialogFragment<ApplicationIn
 
     @Override
     protected ListAdapter createListAdapter(final Context context, final List<ApplicationInfo> currentItems) {
-        return new HiddenApplicationsAdapter(context, currentItems);
+        return PreferenceListItemAdapter.multiSelect(context, currentItems);
     }
 
     @Override
@@ -60,20 +57,6 @@ public class HiddenApplicationsFragment extends BaseDialogFragment<ApplicationIn
                     .toSet();
 
             getPreference().storeNewSelections(selected);
-        }
-    }
-
-    private static class HiddenApplicationsAdapter extends BaseListAdapter<MultiChoiceListItem, ApplicationInfo> {
-
-        private HiddenApplicationsAdapter(final Context context, final List<ApplicationInfo> items) {
-            super(context, R.layout.multi_select_list_item, items);
-        }
-
-        @Override
-        protected MultiChoiceListItem getView(final MultiChoiceListItem itemView, final ApplicationInfo item) {
-            itemView.setIcon(item.getIcon());
-            itemView.setLabel(item.getLabel());
-            return itemView;
         }
     }
 }
