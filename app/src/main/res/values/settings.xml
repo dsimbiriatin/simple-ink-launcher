@@ -69,11 +69,11 @@
     <string name="toolbar_preference_section">Toolbar</string>
     <string name="show_backlight_switch_key" translatable="false">showBacklightSwitch</string>
     <string name="show_backlight_switch_title">Show backlight switch</string>
-    <string name="show_backlight_switch_summary">Adds backlight switch to launcher toolbar</string>
+    <string name="show_backlight_switch_summary">Add backlight switch to launcher toolbar</string>
     <bool name="show_backlight_switch_default_value">false</bool>
 
     <string name="show_wifi_switch_key" translatable="false">showWifiSwitch</string>
     <string name="show_wifi_switch_title">Show Wi-Fi switch</string>
-    <string name="show_wifi_switch_summary">Adds Wi-Fi switch to launcher toolbar</string>
+    <string name="show_wifi_switch_summary">Add Wi-Fi switch to launcher toolbar</string>
     <bool name="show_wifi_switch_default_value">false</bool>
 </resources>
