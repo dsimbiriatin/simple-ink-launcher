@@ -45,4 +45,8 @@
     <string name="write_permissions_request_message">Для контроля уровня яркости подсветки экрана необходимы дополнительные права на изменение системных настроек.</string>
     <string name="write_permissions_request_title">Запрос прав на изменение системных настроек</string>
     <string name="toolbar_preference_section">Панель инструментов</string>
+    <string name="toolbar_location_title">Расположение панели инструментов</string>
+    <string name="toolbar_location_summary">Выберите где будет находиться панель инструментов</string>
+    <string name="toolbar_location_top">В верхней части экрана</string>
+    <string name="toolbar_location_bottom">В нижней части экрана</string>
 </resources>

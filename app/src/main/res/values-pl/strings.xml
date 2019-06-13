@@ -45,4 +45,8 @@
     <string name="wifi_enabled">Sieć Wi-Fi jest włączona</string>
     <string name="write_permissions_request_title">Pozwolenie na nadpisywanie ustawień systemu</string>
     <string name="write_permissions_request_message">Regulacja poziomu jasności ekranu wymaga dodatkowych uprawnień na nadpisywanie ustawień systemu.</string>
+    <string name="toolbar_location_title">Położenie paska narzędzi</string>
+    <string name="toolbar_location_top">Górna część ekranu</string>
+    <string name="toolbar_location_bottom">Dolna część ekranu</string>
+    <string name="toolbar_location_summary">Wybierz gdzie będzie usytuowany pasek narzędzi</string>
 </resources>
