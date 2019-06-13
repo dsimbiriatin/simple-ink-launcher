@@ -18,22 +18,6 @@
 
 package org.ds.simple.ink.launcher.toolbar;
 
-import org.ds.simple.ink.launcher.R;
-
-import lombok.RequiredArgsConstructor;
-
-@RequiredArgsConstructor
 public enum  ToolbarLocationName {
-
-    TOP(
-            R.id.app_drawer_toolbar,
-            R.id.apps_grid
-    ),
-    BOTTOM(
-            R.id.apps_grid,
-            R.id.app_drawer_toolbar
-    );
-
-    public final int topViewId;
-    public final int bottomViewId;
+    TOP, BOTTOM
 }

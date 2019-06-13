@@ -18,9 +18,11 @@
 
 package org.ds.simple.ink.launcher.toolbar;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import org.ds.simple.ink.launcher.LauncherMainActivity;
+import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.settings.ApplicationSettings;
 
 import lombok.NonNull;
@@ -32,29 +34,31 @@ import static androidx.constraintlayout.widget.ConstraintSet.TOP;
 
 public class ToolbarPositioner implements ApplicationSettings.OnToolbarLocationChangeListener {
 
-    private final LauncherMainActivity activity;
+    private final ConstraintLayout activityLayout;
+    private final ConstraintSet defaultConstraintSet;
 
     public ToolbarPositioner(@NonNull final LauncherMainActivity activity) {
-        this.activity = activity;
+        this.activityLayout = activity.getContentLayout();
+        this.defaultConstraintSet = new ConstraintSet();
+        defaultConstraintSet.clone(activityLayout);
     }
 
     public void positionTo(@NonNull final ToolbarLocationName locationName) {
-        val launcherLayout = activity.getContentLayout();
-        val constraintSet = new ConstraintSet();
-        constraintSet.clone(launcherLayout);
+        if (locationName == ToolbarLocationName.BOTTOM) {
+            defaultConstraintSet.applyTo(activityLayout);
 
-        position(locationName, constraintSet);
-        constraintSet.applyTo(launcherLayout);
+        } else if (locationName == ToolbarLocationName.TOP) {
+            val constraintSet = new ConstraintSet();
+            constraintSet.clone(defaultConstraintSet);
+            constraintSet.connect(R.id.app_drawer_toolbar, TOP, PARENT_ID, TOP);
+            constraintSet.connect(R.id.app_drawer_toolbar, BOTTOM, R.id.apps_grid, TOP);
+            constraintSet.connect(R.id.apps_grid, BOTTOM, PARENT_ID, BOTTOM);
+            constraintSet.applyTo(activityLayout);
+        }
     }
 
     @Override
     public void toolbarLocationChanged(final ToolbarLocationName newLocation) {
         positionTo(newLocation);
-    }
-
-    private void position(final ToolbarLocationName location, final ConstraintSet constraintSet) {
-        constraintSet.connect(location.topViewId, TOP, PARENT_ID, TOP);
-        constraintSet.connect(location.topViewId, BOTTOM, location.bottomViewId, TOP);
-        constraintSet.connect(location.bottomViewId, BOTTOM, PARENT_ID, BOTTOM);
     }
 }
