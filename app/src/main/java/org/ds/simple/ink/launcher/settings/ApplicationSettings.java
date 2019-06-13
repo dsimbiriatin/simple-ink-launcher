@@ -29,6 +29,7 @@ import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.ds.simple.ink.launcher.sorting.SortingStrategies;
 import org.ds.simple.ink.launcher.sorting.SortingStrategyName;
+import org.ds.simple.ink.launcher.toolbar.ToolbarLocationName;
 import org.ds.simple.ink.launcher.utils.ComponentNameUtils;
 
 import java.util.Comparator;
@@ -85,6 +86,14 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
         void backlightSwitchEnabled(final boolean whetherEnabled);
     }
 
+    public interface OnToolbarLocationChangeListener {
+
+        /**
+         * Called after toolbar changes its location from top <-> bottom.
+         */
+        void toolbarLocationChanged(final ToolbarLocationName newLocation);
+    }
+
     private final SortingStrategies sortingStrategies;
     private final SharedPreferences sharedPreferences;
 
@@ -107,8 +116,12 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
     private final String showBacklightSwitchKey;
     private final boolean showBacklightSwitchDefault;
 
+    private final String toolbarLocationKey;
+    private final String toolbarLocationDefault;
+
     private final Map<OnIconsThemeChangeListener, Object> iconsThemeChangeListeners = new WeakHashMap<>();
     private final Map<OnSortingStrategyChangeListener, Object> sortingStrategyListeners = new WeakHashMap<>();
+    private final Map<OnToolbarLocationChangeListener, Object> toolbarLocationChangeListeners = new WeakHashMap<>();
     private final Map<OnHideApplicationsChangeListener, Object> hideApplicationsChangeListeners = new WeakHashMap<>();
     private final Map<OnWifiSwitchEnabledChangeListener, Object> wifiSwitchEnabledChangeListeners = new WeakHashMap<>();
     private final Map<OnBacklightSwitchEnabledChangeListener, Object> backlightSwitchEnabledChangeListeners = new WeakHashMap<>();
@@ -135,6 +148,9 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
 
         this.showBacklightSwitchKey = resources.getString(R.string.show_backlight_switch_key);
         this.showBacklightSwitchDefault = resources.getBoolean(R.bool.show_backlight_switch_default_value);
+
+        this.toolbarLocationKey = resources.getString(R.string.toolbar_location_key);
+        this.toolbarLocationDefault = resources.getString(R.string.toolbar_location_default_value);
     }
 
     public Comparator<ApplicationInfo> getSortingStrategy() {
@@ -165,6 +181,11 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
     public ComponentName getDefaultReaderApplicationComponentName() {
         val flattenComponentName = getDefaultReaderApplication();
         return ComponentNameUtils.fromFlattenString(flattenComponentName);
+    }
+
+    public ToolbarLocationName getToolbarLocation() {
+        val toolbarLocation = sharedPreferences.getString(toolbarLocationKey, toolbarLocationDefault);
+        return ToolbarLocationName.valueOf(toolbarLocation);
     }
 
     private String getDefaultReaderApplication() {
@@ -200,6 +221,11 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
         hideApplicationsChangeListeners.put(listener, null);
     }
 
+    @SuppressWarnings("ConstantConditions")
+    public void registerToolbarLocationChangeListener(@NonNull final OnToolbarLocationChangeListener listener) {
+        toolbarLocationChangeListeners.put(listener, null);
+    }
+
     public void notifyApplicationRemoved(final String packageName) {
         if (getIconsTheme().equals(packageName)) {
             val edit = sharedPreferences.edit();
@@ -212,6 +238,10 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
     public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
         if (key.equals(iconsThemeKey)) {
             notifyIconsThemeChanged(getIconsTheme());
+        }
+
+        if (key.equals(toolbarLocationKey)) {
+            notifyToolbarLocationChanged(getToolbarLocation());
         }
 
         if (key.equals(showWifiSwitchKey)) {
@@ -262,6 +292,12 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
     private void notifyBacklightSwitchEnabledChanged(final boolean whetherEnabled) {
         for (val listener : backlightSwitchEnabledChangeListeners.keySet()) {
             listener.backlightSwitchEnabled(whetherEnabled);
+        }
+    }
+
+    private void notifyToolbarLocationChanged(final ToolbarLocationName newLocation) {
+        for (val listener : toolbarLocationChangeListeners.keySet()) {
+            listener.toolbarLocationChanged(newLocation);
         }
     }
 

@@ -21,6 +21,7 @@ package org.ds.simple.ink.launcher.toolbar;
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import org.ds.simple.ink.launcher.LauncherMainActivity;
+import org.ds.simple.ink.launcher.settings.ApplicationSettings;
 
 import lombok.NonNull;
 import lombok.val;
@@ -29,7 +30,7 @@ import static androidx.constraintlayout.widget.ConstraintSet.BOTTOM;
 import static androidx.constraintlayout.widget.ConstraintSet.PARENT_ID;
 import static androidx.constraintlayout.widget.ConstraintSet.TOP;
 
-public class ToolbarPositioner {
+public class ToolbarPositioner implements ApplicationSettings.OnToolbarLocationChangeListener {
 
     private final LauncherMainActivity activity;
 
@@ -44,6 +45,11 @@ public class ToolbarPositioner {
 
         position(locationName, constraintSet);
         constraintSet.applyTo(launcherLayout);
+    }
+
+    @Override
+    public void toolbarLocationChanged(final ToolbarLocationName newLocation) {
+        positionTo(newLocation);
     }
 
     private void position(final ToolbarLocationName location, final ConstraintSet constraintSet) {

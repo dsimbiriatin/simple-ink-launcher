@@ -24,7 +24,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import org.ds.simple.ink.launcher.drawer.ApplicationDrawer;
 import org.ds.simple.ink.launcher.toolbar.ApplicationDrawerToolbar;
-import org.ds.simple.ink.launcher.toolbar.ToolbarLocationName;
 import org.ds.simple.ink.launcher.toolbar.ToolbarPositioner;
 
 import lombok.val;
@@ -67,7 +66,8 @@ public class LauncherMainActivity extends BaseLauncherActivity {
         applicationSettings.registerBacklightSwitchEnabledChangeListener(applicationDrawerToolbar);
 
         toolbarPositioner = new ToolbarPositioner(this);
-        toolbarPositioner.positionTo(ToolbarLocationName.TOP);
+        toolbarPositioner.positionTo(applicationSettings.getToolbarLocation());
+        applicationSettings.registerToolbarLocationChangeListener(toolbarPositioner);
     }
 
     @Override
