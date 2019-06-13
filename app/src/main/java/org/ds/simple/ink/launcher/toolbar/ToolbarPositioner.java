@@ -44,17 +44,20 @@ public class ToolbarPositioner implements ApplicationSettings.OnToolbarLocationC
     }
 
     public void positionTo(@NonNull final ToolbarLocationName locationName) {
+        val constraintSet = new ConstraintSet();
+        constraintSet.clone(defaultConstraintSet);
+
         if (locationName == ToolbarLocationName.BOTTOM) {
-            defaultConstraintSet.applyTo(activityLayout);
+            constraintSet.connect(R.id.apps_grid, TOP, PARENT_ID, TOP);
+            constraintSet.connect(R.id.apps_grid, BOTTOM, R.id.app_drawer_toolbar, TOP);
+            constraintSet.connect(R.id.app_drawer_toolbar, BOTTOM, PARENT_ID, BOTTOM);
 
         } else if (locationName == ToolbarLocationName.TOP) {
-            val constraintSet = new ConstraintSet();
-            constraintSet.clone(defaultConstraintSet);
             constraintSet.connect(R.id.app_drawer_toolbar, TOP, PARENT_ID, TOP);
-            constraintSet.connect(R.id.app_drawer_toolbar, BOTTOM, R.id.apps_grid, TOP);
+            constraintSet.connect(R.id.apps_grid, TOP, R.id.app_drawer_toolbar, BOTTOM);
             constraintSet.connect(R.id.apps_grid, BOTTOM, PARENT_ID, BOTTOM);
-            constraintSet.applyTo(activityLayout);
         }
+        constraintSet.applyTo(activityLayout);
     }
 
     @Override
