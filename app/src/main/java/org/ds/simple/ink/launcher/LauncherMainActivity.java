@@ -20,12 +20,19 @@ package org.ds.simple.ink.launcher;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import org.ds.simple.ink.launcher.drawer.ApplicationDrawer;
 import org.ds.simple.ink.launcher.toolbar.ApplicationDrawerToolbar;
+import org.ds.simple.ink.launcher.toolbar.ToolbarLocationName;
+import org.ds.simple.ink.launcher.toolbar.ToolbarPositioner;
 
 import lombok.val;
 
 public class LauncherMainActivity extends BaseLauncherActivity {
+
+    @SuppressWarnings("FieldCanBeLocal")
+    private ToolbarPositioner toolbarPositioner;
 
     @SuppressWarnings("FieldCanBeLocal")
     private ApplicationDrawer applicationDrawer;
@@ -58,10 +65,17 @@ public class LauncherMainActivity extends BaseLauncherActivity {
         applicationDrawer.registerOnTotalCountChangeListener(applicationDrawerToolbar);
         applicationSettings.registerWifiSwitchEnabledChangeListener(applicationDrawerToolbar);
         applicationSettings.registerBacklightSwitchEnabledChangeListener(applicationDrawerToolbar);
+
+        toolbarPositioner = new ToolbarPositioner(this);
+        toolbarPositioner.positionTo(ToolbarLocationName.TOP);
     }
 
     @Override
     public void onBackPressed() {
         // block possibility to go back on launcher main activity
+    }
+
+    public ConstraintLayout getContentLayout() {
+        return findViewById(R.id.launcher_layout_id);
     }
 }

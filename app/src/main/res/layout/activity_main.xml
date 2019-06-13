@@ -24,6 +24,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/launcher_layout_id"
     tools:context="org.ds.simple.ink.launcher.LauncherMainActivity">
 
     <org.ds.simple.ink.launcher.drawer.ApplicationDrawer
