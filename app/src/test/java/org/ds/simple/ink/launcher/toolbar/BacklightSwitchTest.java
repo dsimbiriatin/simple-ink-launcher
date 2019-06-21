@@ -37,6 +37,7 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.BDDMockito.willAnswer;
+import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.mock;
 
 @RunWith(JUnit4.class)
@@ -45,8 +46,9 @@ public class BacklightSwitchTest {
     @Test
     public void shouldSwitchToMinimalBrightnessWhenCurrentValueIsMoreThanMinimalOne() {
         // given
+        val backlightSwitch = givenDefaultBacklightSwitch();
         val settings = givenSettingsWithBrightnessValue(50);
-        val controller = new BacklightSwitch.BacklightController(settings, null);
+        val controller = new BacklightSwitch.BacklightController(settings, backlightSwitch);
 
         // when
         controller.onClick(mock(View.class));
@@ -54,13 +56,15 @@ public class BacklightSwitchTest {
         // then
         then(settings).should().enableManualBrightnessControl();
         then(settings).should().setScreenBrightnessTo(BRIGHTNESS_MIN);
+        then(backlightSwitch).should().setImageBasedOn(BRIGHTNESS_MIN);
     }
 
     @Test
     public void shouldSwitchBrightnessToMaxValueIfCurrentIsMinimalAndPreviousStateIsNotPresent() {
         // given: brightness controller which does not have previous state
+        val backlightSwitch = givenDefaultBacklightSwitch();
         val settings = givenSettingsWithBrightnessValue(BRIGHTNESS_MIN);
-        val controller = new BacklightSwitch.BacklightController(settings, null);
+        val controller = new BacklightSwitch.BacklightController(settings, backlightSwitch);
 
         // when
         controller.onClick(mock(View.class));
@@ -68,13 +72,15 @@ public class BacklightSwitchTest {
         // then
         then(settings).should().enableManualBrightnessControl();
         then(settings).should().setScreenBrightnessTo(BRIGHTNESS_MAX);
+        then(backlightSwitch).should().setImageBasedOn(BRIGHTNESS_MAX);
     }
 
     @Test
     public void shouldSwitchBrightnessFromMinimalValueToPreviousStateWhenPresent() {
         // given: brightness controller which does not have previous state yet
+        val backlightSwitch = givenDefaultBacklightSwitch();
         val settings = givenSettingsWithBrightnessValue(30);
-        val controller = new BacklightSwitch.BacklightController(settings, null);
+        val controller = new BacklightSwitch.BacklightController(settings, backlightSwitch);
 
         // when: switching state, brightness value = 30 will be stored as previous state
         controller.onClick(mock(View.class));
@@ -87,6 +93,7 @@ public class BacklightSwitchTest {
 
         // then
         then(settings).should().setScreenBrightnessTo(30);
+        then(backlightSwitch).should().setImageBasedOn(30);
     }
 
     @Test
@@ -117,6 +124,7 @@ public class BacklightSwitchTest {
 
     private BacklightSwitch givenDefaultBacklightSwitch() {
         val backlightSwitch = mock(BacklightSwitch.class);
+        willDoNothing().given(backlightSwitch).setImageBasedOn(anyInt());
         given(backlightSwitch.writePermissionRequestDialog()).willReturn(mock(AlertDialog.class));
         return backlightSwitch;
     }

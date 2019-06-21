@@ -31,6 +31,7 @@ import lombok.val;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.mock;
 
 @RunWith(JUnit4.class)
@@ -39,9 +40,10 @@ public class WifiSwitchTest {
     @Test
     public void shouldSwitchWiFiStateOnOnClick() {
         // given: enabled wifi
+        val wifiSwitch = givenWifiSwitch();
         val wifiToasts = givenWifiToasts();
         val wifiManager = givenWifiManagerWithWifiEnabled();
-        val wifiController = new WifiSwitch.WifiController(wifiToasts, wifiManager);
+        val wifiController = new WifiSwitch.WifiController(wifiSwitch, wifiToasts, wifiManager);
 
         // when
         wifiController.onClick(mock(View.class));
@@ -49,6 +51,13 @@ public class WifiSwitchTest {
         // then: wifi should be disabled
         then(wifiManager).should().setWifiEnabled(false);
         then(wifiToasts.newToast(false)).should().show();
+        then(wifiSwitch).should().setImageBasedOn(false);
+    }
+
+    private WifiSwitch givenWifiSwitch() {
+        val wifiSwitch = mock(WifiSwitch.class);
+        willDoNothing().given(wifiSwitch).setImageBasedOn(anyBoolean());
+        return wifiSwitch;
     }
 
     private WifiToasts givenWifiToasts() {

@@ -25,6 +25,8 @@ import android.view.View;
 
 import androidx.appcompat.widget.AppCompatImageButton;
 
+import org.ds.simple.ink.launcher.R;
+
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
@@ -36,7 +38,14 @@ public class WifiSwitch extends AppCompatImageButton {
         super(context, attrs);
         val wifiToasts = new WifiToasts(context);
         val wifiManager = getWifiManager(context);
-        setOnClickListener(new WifiController(wifiToasts, wifiManager));
+        setImageBasedOn(wifiManager.isWifiEnabled());
+        setOnClickListener(new WifiController(this, wifiToasts, wifiManager));
+    }
+
+    void setImageBasedOn(final boolean wifiState) {
+        setImageResource(wifiState
+                ? R.drawable.ic_wifi_on_toolbar
+                : R.drawable.ic_wifi_off_toolbar);
     }
 
     private WifiManager getWifiManager(final Context context) {
@@ -47,14 +56,16 @@ public class WifiSwitch extends AppCompatImageButton {
     @RequiredArgsConstructor
     static class WifiController implements View.OnClickListener {
 
+        private final WifiSwitch wifiSwitch;
         private final WifiToasts wifiToasts;
         private final WifiManager wifiManager;
 
         @Override
         public void onClick(final View view) {
-            val enabled = !wifiManager.isWifiEnabled();
-            wifiManager.setWifiEnabled(enabled);
-            wifiToasts.newToast(enabled).show();
+            val nextState = !wifiManager.isWifiEnabled();
+            wifiSwitch.setImageBasedOn(nextState);
+            wifiManager.setWifiEnabled(nextState);
+            wifiToasts.newToast(nextState).show();
         }
     }
 }
