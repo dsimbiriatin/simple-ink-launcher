@@ -1,0 +1,23 @@
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector android:height="24dp" android:viewportHeight="40"
+    android:viewportWidth="40" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF000000"
+        android:pathData="m20,6.2501c-4.0607,0 -7.3636,3.3641 -7.3636,7.5002 0,0.6906 0.5492,1.25 1.2273,1.25 0.6781,0 1.2273,-0.5594 1.2273,-1.25 0,-2.7579 2.203,-5.0001 4.9091,-5.0001 0.6781,0 1.2273,-0.5594 1.2273,-1.25 0,-0.6906 -0.5492,-1.25 -1.2273,-1.25zM13.8682,35.8734c0,0.2461 0.0713,0.4859 0.2056,0.6906l1.88,2.8782C16.1816,39.7906 16.5652,40 16.9755,40h6.0482c0.4111,0 0.7947,-0.2094 1.0217,-0.5578L25.9254,36.564c0.1335,-0.2047 0.2048,-0.4453 0.2056,-0.6906l0.0038,-3.3735L13.8652,32.4999ZM20,0C12.1547,0 6.5,6.4822 6.5,13.7503c0,3.4665 1.2618,6.629 3.3413,9.0455 1.2764,1.4836 3.2784,4.5938 4.0209,7.2001v0.005h3.6818v-0.009c-0.0007,-0.3727 -0.0552,-0.743 -0.1649,-1.0992 -0.4288,-1.3914 -1.7504,-5.0602 -4.7687,-8.5681 -1.5755,-1.8305 -2.4177,-4.1524 -2.4246,-6.5736 -0.0153,-5.7532 4.577,-10.0002 9.8143,-10.0002 5.4138,0 9.8182,4.486 9.8182,10.0002 0,2.4196 -0.8622,4.754 -2.4277,6.5736 -2.9999,3.4852 -4.3277,7.1462 -4.7634,8.5517a3.644,3.7116 0,0 0,-0.1703 1.1172v0.008h3.6818v-0.004c0.7425,-2.6071 2.7445,-5.7173 4.0209,-7.2001C32.2382,20.3801 33.5,17.2175 33.5,13.751 33.5,6.1571 27.4557,0.0008 20,0.0008Z" android:strokeWidth="0.07741228"/>
+</vector>

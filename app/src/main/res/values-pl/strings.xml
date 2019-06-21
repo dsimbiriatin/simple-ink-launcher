@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
 <resources>
     <string name="app_name">Simple Ink Launcher</string>
     <string name="app_settings_label">Ustawienia</string>
@@ -17,4 +35,18 @@
     <string name="sorting_strategy_summary">Wybierz kolejność wyświetlania aplikacji na ekranie głównym</string>
     <string name="total_item_count_label">Ilość: %1$d</string>
     <string name="reader_app_first_label">Najpierw aplikacja do czytania</string>
+    <string name="ok_button">ОК</string>
+    <string name="show_backlight_switch_title">Przełącznik podświetlenia ekranu</string>
+    <string name="show_backlight_switch_summary">Pokazuj przełącznik podświetlenia ekranu na pasku narzędzi</string>
+    <string name="show_wifi_switch_title">Przełącznik sieci Wi-Fi</string>
+    <string name="show_wifi_switch_summary">Pokazuj przełącznik sieci Wi-Fi na pasku narzędzi</string>
+    <string name="toolbar_preference_section">Pasek narzędzi</string>
+    <string name="wifi_disabled">Sieć Wi-Fi jest wyłączona</string>
+    <string name="wifi_enabled">Sieć Wi-Fi jest włączona</string>
+    <string name="write_permissions_request_title">Pozwolenie na nadpisywanie ustawień systemu</string>
+    <string name="write_permissions_request_message">Regulacja poziomu jasności ekranu wymaga dodatkowych uprawnień na nadpisywanie ustawień systemu.</string>
+    <string name="toolbar_location_title">Położenie paska narzędzi</string>
+    <string name="toolbar_location_top">Górna część ekranu</string>
+    <string name="toolbar_location_bottom">Dolna część ekranu</string>
+    <string name="toolbar_location_summary">Wybierz miejsce dla paska narzędzi</string>
 </resources>

@@ -22,6 +22,8 @@ import android.content.ComponentName;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
+
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
@@ -32,7 +34,7 @@ import lombok.Value;
 @Builder
 @ToString(of = "componentName")
 @EqualsAndHashCode(of = "componentName")
-public class ApplicationInfo {
+public class ApplicationInfo implements PreferenceListItem {
 
     String label;
     Drawable icon;
@@ -42,18 +44,23 @@ public class ApplicationInfo {
         return componentName.flattenToString();
     }
 
+    @Override
+    public String getValue() {
+        return getFlattenName();
+    }
+
     @SuppressWarnings("unused")
     public static class ApplicationInfoBuilder {
 
         private String label;
         private ComponentName componentName;
 
-        ApplicationInfoBuilder label(@NonNull final CharSequence label) {
+        public ApplicationInfoBuilder label(@NonNull final CharSequence label) {
             this.label = label.toString();
             return this;
         }
 
-        ApplicationInfoBuilder componentName(@NonNull final ComponentName componentName) {
+        public ApplicationInfoBuilder componentName(@NonNull final ComponentName componentName) {
             this.componentName = componentName;
             return this;
         }

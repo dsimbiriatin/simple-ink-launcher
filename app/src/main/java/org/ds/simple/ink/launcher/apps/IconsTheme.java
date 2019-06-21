@@ -22,6 +22,7 @@ import android.content.ComponentName;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
+import com.google.common.base.Optional;
 import com.google.common.base.Supplier;
 
 import java.util.HashMap;
@@ -29,6 +30,8 @@ import java.util.Map;
 
 import lombok.NonNull;
 import lombok.val;
+
+import static org.ds.simple.ink.launcher.utils.Exceptions.execute;
 
 public class IconsTheme {
 
@@ -67,6 +70,7 @@ public class IconsTheme {
      * Returns a drawable object associated with provided component.
      * If current theme does not have suitable icon, the default one will be returned instead.
      */
+    @SuppressWarnings("UnstableApiUsage")
     Drawable getDrawable(@NonNull final String componentName, @NonNull final Supplier<Drawable> defaultDrawable) {
         if (isNotInitialized()) {
             return defaultDrawable.get();
@@ -75,20 +79,13 @@ public class IconsTheme {
         if (drawableName == null) {
             return defaultDrawable.get();
         }
-        val loadedDrawable = loadDrawable(drawableName);
-        if (loadedDrawable == null) {
-            return defaultDrawable.get();
-        }
-        return loadedDrawable;
+        return loadDrawable(drawableName)
+                .or(defaultDrawable);
     }
 
-    private Drawable loadDrawable(final String drawableName) {
-        try {
-            val id = iconResources.getIdentifier(drawableName, "drawable", packageName);
-            return (id > 0) ? iconResources.getDrawable(id) : null;
-        } catch (Resources.NotFoundException ex) {
-            return null;
-        }
+    private Optional<Drawable> loadDrawable(final String drawableName) {
+        val id = iconResources.getIdentifier(drawableName, "drawable", packageName);
+        return execute(() -> iconResources.getDrawable(id));
     }
 
     private boolean isNotInitialized() {

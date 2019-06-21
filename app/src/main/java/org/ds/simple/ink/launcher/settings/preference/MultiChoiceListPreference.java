@@ -20,7 +20,6 @@ package org.ds.simple.ink.launcher.settings.preference;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.preference.DialogPreference;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -30,7 +29,7 @@ import java.util.Set;
 
 import lombok.NonNull;
 
-public class MultiChoiceListPreference extends DialogPreference implements SelectionStatePreference<String> {
+public class MultiChoiceListPreference extends LauncherDialogPreference {
 
     private Set<String> previousSelections = ImmutableSet.of();
 

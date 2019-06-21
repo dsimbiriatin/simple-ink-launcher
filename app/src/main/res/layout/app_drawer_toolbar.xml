@@ -33,6 +33,30 @@
         android:contentDescription="@null"
         />
 
+    <org.ds.simple.ink.launcher.toolbar.WifiSwitch
+        android:id="@+id/wifi_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:padding="8dp"
+        android:layout_margin="3dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/backlight_switch"
+        android:contentDescription="@null"
+        />
+
+    <org.ds.simple.ink.launcher.toolbar.BacklightSwitch
+        android:id="@+id/backlight_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:padding="8dp"
+        android:layout_margin="3dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/total_items_count"
+        android:contentDescription="@null"
+        />
+
     <TextView android:id="@+id/total_items_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

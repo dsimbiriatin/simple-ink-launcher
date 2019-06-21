@@ -21,13 +21,12 @@ package org.ds.simple.ink.launcher.settings.preference;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import androidx.preference.DialogPreference;
 
 import org.ds.simple.ink.launcher.R;
 
 import lombok.NonNull;
 
-public class SingleChoiceListPreference extends DialogPreference implements SelectionStatePreference<String> {
+public class SingleChoiceListPreference extends LauncherDialogPreference {
 
     private String previousSelection = "";
 

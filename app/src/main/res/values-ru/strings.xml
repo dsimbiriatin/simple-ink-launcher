@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
 <resources>
     <string name="app_name">Simple Ink Launcher</string>
     <string name="app_settings_label">Настройки</string>
@@ -17,4 +35,18 @@
     <string name="sorting_strategy_summary">Выберите в каком порядке приложения будут отображаться на главном экране</string>
     <string name="total_item_count_label">Всего: %1$d</string>
     <string name="reader_app_first_label">Приложение для чтения вначале</string>
+    <string name="show_backlight_switch_title">Переключатель подсветки экрана</string>
+    <string name="show_wifi_switch_title">Переключатель Wi-Fi</string>
+    <string name="show_wifi_switch_summary">Отображать переключатель Wi-Fi на панели инструментов</string>
+    <string name="show_backlight_switch_summary">Отображать переключатель подсветки экрана на панели инструментов</string>
+    <string name="ok_button">ОК</string>
+    <string name="wifi_disabled">Wi-Fi выключен</string>
+    <string name="wifi_enabled">Wi-Fi включён</string>
+    <string name="write_permissions_request_message">Для контроля уровня яркости подсветки экрана необходимы дополнительные права на изменение системных настроек.</string>
+    <string name="write_permissions_request_title">Запрос прав на изменение системных настроек</string>
+    <string name="toolbar_preference_section">Панель инструментов</string>
+    <string name="toolbar_location_title">Расположение панели инструментов</string>
+    <string name="toolbar_location_summary">Выберите где будет находиться панель инструментов</string>
+    <string name="toolbar_location_top">В верхней части экрана</string>
+    <string name="toolbar_location_bottom">В нижней части экрана</string>
 </resources>

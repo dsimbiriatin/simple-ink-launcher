@@ -23,33 +23,32 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import org.ds.simple.ink.launcher.R;
-import org.ds.simple.ink.launcher.adapter.BaseListAdapter;
-import org.ds.simple.ink.launcher.apps.ApplicationInfo;
-import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListItem;
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItemAdapter;
 import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference;
 
 import java.util.List;
 
 import lombok.val;
 
-public abstract class ApplicationSingleSelectFragment extends BaseDialogFragment<ApplicationInfo, SingleChoiceListPreference> {
+public abstract class SingleChoiceDialogFragment<T extends PreferenceListItem> extends BaseDialogFragment<T, SingleChoiceListPreference> {
 
-    ApplicationSingleSelectFragment(final String key) {
+    SingleChoiceDialogFragment(final String key) {
         super(key);
         setClickOnItemDismissEnabled(true);
     }
 
     @Override
-    protected ListAdapter createListAdapter(final Context context, final List<ApplicationInfo> currentItems) {
-        return new ApplicationSingleSelectAdapter(context, currentItems);
+    protected ListAdapter createListAdapter(final Context context, final List<T> currentItems) {
+        return new PreferenceListItemAdapter<>(context, R.layout.single_select_list_item, currentItems);
     }
 
     @Override
-    protected void restorePreviousSelections(final ListView listView, final List<ApplicationInfo> currentItems) {
+    protected void restorePreviousSelections(final ListView listView, final List<T> currentItems) {
         val preference = getPreference();
         for (int i = 0; i < currentItems.size(); ++i) {
-            val applicationInfo = currentItems.get(i);
-            if (preference.wasSelectedPreviously(applicationInfo.getFlattenName())) {
+            val item = currentItems.get(i);
+            if (preference.wasSelectedPreviously(item.getValue())) {
                 listView.setItemChecked(i, true);
                 break;
             }
@@ -60,21 +59,7 @@ public abstract class ApplicationSingleSelectFragment extends BaseDialogFragment
     public void onDialogClosed(final boolean positiveResult) {
         if (positiveResult && listSelections.hasOneSelection()) {
             val selected = listSelections.getSelection();
-            getPreference().storeNewSelection(selected.getFlattenName());
-        }
-    }
-
-    private static class ApplicationSingleSelectAdapter extends BaseListAdapter<SingleChoiceListItem, ApplicationInfo> {
-
-        private ApplicationSingleSelectAdapter(final Context context, final List<ApplicationInfo> items) {
-            super(context, R.layout.single_select_list_item, items);
-        }
-
-        @Override
-        protected SingleChoiceListItem getView(final SingleChoiceListItem itemView, final ApplicationInfo item) {
-            itemView.setIcon(item.getIcon());
-            itemView.setLabel(item.getLabel());
-            return itemView;
+            getPreference().storeNewSelection(selected.getValue());
         }
     }
 }

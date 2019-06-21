@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.ds.simple.ink.launcher.adapter;
+package org.ds.simple.ink.launcher.common;
 
 import android.content.Context;
 import android.view.LayoutInflater;

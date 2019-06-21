@@ -25,7 +25,7 @@ import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 
 import java.util.List;
 
-public class IconsThemeFragment extends ApplicationSingleSelectFragment {
+public class IconsThemeFragment extends SingleChoiceDialogFragment<ApplicationInfo> {
 
     IconsThemeFragment(final String key) {
         super(key);

@@ -20,12 +20,18 @@ package org.ds.simple.ink.launcher;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import org.ds.simple.ink.launcher.drawer.ApplicationDrawer;
-import org.ds.simple.ink.launcher.drawer.ApplicationDrawerToolbar;
+import org.ds.simple.ink.launcher.toolbar.ApplicationDrawerToolbar;
+import org.ds.simple.ink.launcher.toolbar.ToolbarPositioner;
 
 import lombok.val;
 
 public class LauncherMainActivity extends BaseLauncherActivity {
+
+    @SuppressWarnings("FieldCanBeLocal")
+    private ToolbarPositioner toolbarPositioner;
 
     @SuppressWarnings("FieldCanBeLocal")
     private ApplicationDrawer applicationDrawer;
@@ -52,11 +58,24 @@ public class LauncherMainActivity extends BaseLauncherActivity {
 
         applicationDrawerToolbar = findViewById(R.id.app_drawer_toolbar);
         applicationDrawerToolbar.setTotalItemsCount(applicationDrawer.getCount());
+        applicationDrawerToolbar.showWifiSwitch(applicationSettings.showWifiSwitch());
+        applicationDrawerToolbar.showBacklightSwitch(applicationSettings.showBacklightSwitch());
+
         applicationDrawer.registerOnTotalCountChangeListener(applicationDrawerToolbar);
+        applicationSettings.registerWifiSwitchEnabledChangeListener(applicationDrawerToolbar);
+        applicationSettings.registerBacklightSwitchEnabledChangeListener(applicationDrawerToolbar);
+
+        toolbarPositioner = new ToolbarPositioner(this);
+        toolbarPositioner.positionTo(applicationSettings.getToolbarLocation());
+        applicationSettings.registerToolbarLocationChangeListener(toolbarPositioner);
     }
 
     @Override
     public void onBackPressed() {
         // block possibility to go back on launcher main activity
+    }
+
+    public ConstraintLayout getContentLayout() {
+        return findViewById(R.id.launcher_layout_id);
     }
 }

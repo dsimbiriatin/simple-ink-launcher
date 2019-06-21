@@ -22,66 +22,42 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.Checkable;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import org.ds.simple.ink.launcher.R;
+import org.ds.simple.ink.launcher.common.ViewCache;
 
 import lombok.NonNull;
 
-public class SingleChoiceListItem extends RelativeLayout implements Checkable {
+public class SingleChoiceListItem extends PreferenceListItemView implements Checkable {
 
-    private TextView label;
-    private ImageView icon;
-    private RadioButton itemSelector;
+    private final ViewCache children = new ViewCache(this);
 
     public SingleChoiceListItem(final Context context, final AttributeSet attrs) {
         super(context, attrs);
     }
 
+    @Override
     public void setIcon(@NonNull final Drawable icon) {
-        getIcon().setImageDrawable(icon);
+        children.getImageView(R.id.item_icon).setImageDrawable(icon);
     }
 
+    @Override
     public void setLabel(@NonNull final String label) {
-        getLabel().setText(label);
+        children.getTextView(R.id.item_label).setText(label);
     }
 
     @Override
     public void setChecked(final boolean checked) {
-        getItemSelector().setChecked(checked);
+        children.getRadioButton(R.id.item_selector).setChecked(checked);
     }
 
     @Override
     public boolean isChecked() {
-        return getItemSelector().isChecked();
+        return children.getRadioButton(R.id.item_selector).isChecked();
     }
 
     @Override
     public void toggle() {
-        getItemSelector().toggle();
-    }
-
-    private ImageView getIcon() {
-        if (icon == null) {
-            icon = findViewById(R.id.item_icon);
-        }
-        return icon;
-    }
-
-    private TextView getLabel() {
-        if (label == null) {
-            label = findViewById(R.id.item_label);
-        }
-        return label;
-    }
-
-    private RadioButton getItemSelector() {
-        if (itemSelector == null) {
-            itemSelector = findViewById(R.id.item_selector);
-        }
-        return itemSelector;
+        children.getRadioButton(R.id.item_selector).toggle();
     }
 }

@@ -21,7 +21,7 @@ package org.ds.simple.ink.launcher.drawer;
 import android.content.Context;
 
 import org.ds.simple.ink.launcher.R;
-import org.ds.simple.ink.launcher.adapter.BaseListAdapter;
+import org.ds.simple.ink.launcher.common.BaseListAdapter;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 
 import java.util.HashSet;

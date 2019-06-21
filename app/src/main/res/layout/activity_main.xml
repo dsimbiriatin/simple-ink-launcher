@@ -24,6 +24,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/launcher_layout_id"
     tools:context="org.ds.simple.ink.launcher.LauncherMainActivity">
 
     <org.ds.simple.ink.launcher.drawer.ApplicationDrawer
@@ -37,11 +38,10 @@
         android:horizontalSpacing="10dp"
         android:scrollbars="none"
         android:listSelector="@android:color/transparent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/app_drawer_toolbar"
+        tools:ignore="MissingConstraints"
         />
 
-    <org.ds.simple.ink.launcher.drawer.ApplicationDrawerToolbar
+    <org.ds.simple.ink.launcher.toolbar.ApplicationDrawerToolbar
         android:id="@+id/app_drawer_toolbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -49,7 +49,7 @@
         android:background="@drawable/app_drawer_toolbar_bg"
         app:layout_constraintHeight_max="55dp"
         app:layout_constraintHeight_min="55dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

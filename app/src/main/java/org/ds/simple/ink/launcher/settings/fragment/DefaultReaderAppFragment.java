@@ -25,7 +25,7 @@ import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 
 import java.util.List;
 
-public class DefaultReaderAppFragment extends ApplicationSingleSelectFragment {
+public class DefaultReaderAppFragment extends SingleChoiceDialogFragment<ApplicationInfo> {
 
     DefaultReaderAppFragment(final String key) {
         super(key);

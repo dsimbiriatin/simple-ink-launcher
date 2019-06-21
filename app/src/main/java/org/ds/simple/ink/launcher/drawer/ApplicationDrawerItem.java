@@ -20,17 +20,15 @@ package org.ds.simple.ink.launcher.drawer;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
+import org.ds.simple.ink.launcher.common.ViewCache;
 
 public class ApplicationDrawerItem extends LinearLayout {
 
-    private TextView label;
-    private ImageView icon;
+    private final ViewCache children = new ViewCache(this);
 
     public ApplicationDrawerItem(final Context context, final AttributeSet attrs) {
         super(context, attrs);
@@ -44,21 +42,7 @@ public class ApplicationDrawerItem extends LinearLayout {
     }
 
     public void updateWith(final ApplicationInfo applicationInfo) {
-        getIcon().setImageDrawable(applicationInfo.getIcon());
-        getLabel().setText(applicationInfo.getLabel());
-    }
-
-    private ImageView getIcon() {
-        if (icon == null) {
-            icon = findViewById(R.id.item_icon);
-        }
-        return icon;
-    }
-
-    private TextView getLabel() {
-        if (label == null) {
-            label = findViewById(R.id.item_label);
-        }
-        return label;
+        children.getTextView(R.id.item_label).setText(applicationInfo.getLabel());
+        children.getImageView(R.id.item_icon).setImageDrawable(applicationInfo.getIcon());
     }
 }

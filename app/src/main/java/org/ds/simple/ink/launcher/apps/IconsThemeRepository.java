@@ -42,6 +42,7 @@ import lombok.val;
 
 import static android.content.pm.PackageManager.GET_META_DATA;
 import static android.util.Xml.Encoding.UTF_8;
+import static org.ds.simple.ink.launcher.utils.Exceptions.execute;
 
 public class IconsThemeRepository implements ApplicationSettings.OnIconsThemeChangeListener {
 
@@ -147,11 +148,7 @@ public class IconsThemeRepository implements ApplicationSettings.OnIconsThemeCha
     }
 
     private Resources loadThemeResources(final String packageName) {
-        try {
-            return packageManager.getResourcesForApplication(packageName);
-        } catch (PackageManager.NameNotFoundException ex) {
-            return null;
-        }
+        return execute(() -> packageManager.getResourcesForApplication(packageName)).orNull();
     }
 
     private XmlPullParser loadFromAssetsDirectory(final Resources resources) {

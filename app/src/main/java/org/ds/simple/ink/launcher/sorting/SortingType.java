@@ -20,6 +20,8 @@ package org.ds.simple.ink.launcher.sorting;
 
 import android.graphics.drawable.Drawable;
 
+import org.ds.simple.ink.launcher.settings.preference.PreferenceListItem;
+
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.Value;
@@ -27,7 +29,7 @@ import lombok.Value;
 @Value
 @ToString(exclude = "icon")
 @EqualsAndHashCode(of = "value")
-public class SortingType {
+public class SortingType implements PreferenceListItem {
 
     String label;
     String value;

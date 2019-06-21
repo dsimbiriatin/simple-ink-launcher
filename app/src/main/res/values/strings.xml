@@ -20,4 +20,9 @@
     <string name="app_name">Simple Ink Launcher</string>
     <string name="app_settings_label">Settings</string>
     <string name="total_item_count_label">Total items: %1$d</string>
+    <string name="ok_button">OK</string>
+    <string name="wifi_enabled">Wi-Fi enabled</string>
+    <string name="wifi_disabled">Wi-Fi disabled</string>
+    <string name="write_permissions_request_title">Write permissions request</string>
+    <string name="write_permissions_request_message">Write permissions to system settings are required to control brightness level.</string>
 </resources>

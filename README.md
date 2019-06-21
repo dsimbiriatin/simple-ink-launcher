@@ -1,16 +1,17 @@
 # About
 
-The project started as an idea for a simple replacement of the standard [Inkbook](https://inkbooks.eu/) launcher along with its default reader application, which showed themselves as pretty buggy and nonresponsive piece of software. This launcher rather tries to be a thin, seamless layer between the device and a reader application of choice (e.g. [KOReader](https://github.com/koreader/koreader), [ALReader](http://alreader.com/), etc.), than a feature-rich swiss army knife (like [RelaunchX](https://f-droid.org/en/packages/com.gacode.relaunchx)).
+The project started as an idea for a simple replacement of the standard InkBook launcher along with its default reader application. This launcher rather tries to be a thin, seamless layer between the device and a reader application of choice (e.g. [KOReader](https://github.com/koreader/koreader), [ALReader](http://alreader.com/), etc.), than a feature-rich swiss army knife (like [RelaunchX](https://f-droid.org/en/packages/com.gacode.relaunchx)).
 
 # Key features
+- E-ink friendly design
 - Ability to define default reader application
 - Run reader application automatically during device startup
 - Hide some applications, so they are not visible on the launcher
 - Apply custom icons theme (ADW launcher themes are currently supported)
-- E-ink friendly design, which visually integrates into other parts of Inkbook system
+- Wi-Fi, backlight toggles available on the launcher toolbar
 
 # Compatibility
-Visually designed to look nice on Inkbook devices but technically compatible with any Android-based reader running **version 4.2+**
+Designed to look nice on InkBook devices but technically compatible with any Android-based reader running **version 4.2+**
 
 # References
 Thanks [Font-Awesome](https://github.com/FortAwesome/Font-Awesome) project for the nice icons used in this application

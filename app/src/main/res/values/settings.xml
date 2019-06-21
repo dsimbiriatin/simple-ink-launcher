@@ -64,4 +64,38 @@
     <string name="icons_theme_title">Icons theme</string>
     <string name="icons_theme_summary">Define custom icons theme</string>
     <string name="icons_theme_default_label">Default</string>
+
+    <!-- Toolbar section -->
+    <string name="toolbar_preference_section">Toolbar</string>
+    <string name="show_backlight_switch_key" translatable="false">showBacklightSwitch</string>
+    <string name="show_backlight_switch_title">Show backlight switch</string>
+    <string name="show_backlight_switch_summary">Add backlight switch to launcher toolbar</string>
+    <bool name="show_backlight_switch_default_value">false</bool>
+
+    <string name="show_wifi_switch_key" translatable="false">showWifiSwitch</string>
+    <string name="show_wifi_switch_title">Show Wi-Fi switch</string>
+    <string name="show_wifi_switch_summary">Add Wi-Fi switch to launcher toolbar</string>
+    <bool name="show_wifi_switch_default_value">false</bool>
+
+    <string name="toolbar_location_key" translatable="false">toolbarLocation</string>
+    <string name="toolbar_location_title">Toolbar location</string>
+    <string name="toolbar_location_summary">Define where toolbar will be located on the screen</string>
+    <string name="toolbar_location_default_value" translatable="false">BOTTOM</string>
+    <string name="toolbar_location_top">Top</string>
+    <string name="toolbar_location_bottom">Bottom</string>
+
+    <string-array name="toolbar_location_labels">
+        <item>@string/toolbar_location_top</item>
+        <item>@string/toolbar_location_bottom</item>
+    </string-array>
+
+    <string-array name="toolbar_location_values">
+        <item>TOP</item>
+        <item>BOTTOM</item>
+    </string-array>
+
+    <array name="toolbar_location_icons">
+        <item>@drawable/ic_toolbar_location_top</item>
+        <item>@drawable/ic_toolbar_location_bottom</item>
+    </array>
 </resources>
