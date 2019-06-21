@@ -48,5 +48,5 @@
     <string name="toolbar_location_title">Położenie paska narzędzi</string>
     <string name="toolbar_location_top">Górna część ekranu</string>
     <string name="toolbar_location_bottom">Dolna część ekranu</string>
-    <string name="toolbar_location_summary">Wybierz gdzie będzie usytuowany pasek narzędzi</string>
+    <string name="toolbar_location_summary">Wybierz miejsce dla paska narzędzi</string>
 </resources>
