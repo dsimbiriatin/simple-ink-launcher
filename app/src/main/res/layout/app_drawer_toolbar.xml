@@ -51,7 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_backlight_switch_toolbar"
         android:padding="8dp"
         android:layout_margin="3dp"
         android:layout_centerVertical="true"

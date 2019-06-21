@@ -41,7 +41,14 @@ public class BacklightSwitch extends AppCompatImageButton {
     public BacklightSwitch(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         this.settings = new SystemSettings(context);
+        setImageBasedOn(settings.getScreenBrightnessValue());
         setOnClickListener(new BacklightController(settings, this));
+    }
+
+    void setImageBasedOn(final int brightnessValue) {
+        setImageResource(brightnessValue == BRIGHTNESS_MIN
+                ? R.drawable.ic_backlight_off_toolbar
+                : R.drawable.ic_backlight_on_toolbar);
     }
 
     AlertDialog writePermissionRequestDialog() {
@@ -63,8 +70,10 @@ public class BacklightSwitch extends AppCompatImageButton {
         @Override
         public void onClick(final View view) {
             if (settings.hasWritePermission()) {
+                val nextValue = nextValue();
                 settings.enableManualBrightnessControl();
-                settings.setScreenBrightnessTo(nextValue());
+                settings.setScreenBrightnessTo(nextValue);
+                backlightSwitch.setImageBasedOn(nextValue);
             } else {
                 backlightSwitch.writePermissionRequestDialog().show();
             }
