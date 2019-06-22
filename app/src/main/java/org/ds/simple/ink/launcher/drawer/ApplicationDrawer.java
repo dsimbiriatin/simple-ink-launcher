@@ -22,9 +22,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import org.ds.simple.ink.launcher.BaseLauncherActivity;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.ds.simple.ink.launcher.apps.ApplicationRepository;
 import org.ds.simple.ink.launcher.settings.ApplicationSettings;
@@ -77,6 +79,11 @@ public class ApplicationDrawer extends GridView implements ApplicationRepository
 
     public void hideApplications(@NonNull final Set<String> componentFlattenNames) {
         getAdapter().hideItems(componentFlattenNames);
+    }
+
+    public void enableActionModeSupportForGridItems(@NonNull final BaseLauncherActivity activity) {
+        setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
+        setMultiChoiceModeListener(new ItemActionModeListener(activity, getAdapter()::getItem));
     }
 
     @Override

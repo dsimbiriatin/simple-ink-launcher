@@ -41,6 +41,7 @@ import lombok.NonNull;
 import lombok.val;
 
 import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
+import static com.google.common.collect.Sets.newHashSet;
 import static org.ds.simple.ink.launcher.sorting.SortingStrategyName.READER_APP_FIRST;
 
 public class ApplicationSettings implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -232,6 +233,15 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
             edit.putString(iconsThemeKey, "");
             edit.apply();
         }
+    }
+
+    public void notifyNewHiddenApplications(@NonNull final Set<String> flattenComponentNames) {
+        val hiddenApplications = newHashSet(getHiddenApplications());
+        hiddenApplications.addAll(flattenComponentNames);
+
+        val edit = sharedPreferences.edit();
+        edit.putStringSet(hiddenApplicationsKey, hiddenApplications);
+        edit.apply();
     }
 
     @Override

@@ -48,6 +48,7 @@ public class LauncherMainActivity extends BaseLauncherActivity {
         val applicationRepository = getApplicationRepository();
 
         applicationDrawer = findViewById(R.id.apps_grid);
+        applicationDrawer.enableActionModeSupportForGridItems(this);
         applicationDrawer.setApplications(applicationRepository.listAll(false));
         applicationDrawer.sortApplications(applicationSettings.getSortingStrategy());
         applicationDrawer.hideApplications(applicationSettings.getHiddenApplications());

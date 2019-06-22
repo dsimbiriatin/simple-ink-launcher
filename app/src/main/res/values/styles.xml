@@ -41,6 +41,8 @@
         <item name="android:listPreferredItemPaddingEnd">16dp</item>
 
         <item name="checkboxStyle">@style/AppTheme.Checkbox</item>
+        <item name="actionModeStyle">@style/AppTheme.ActionMode</item>
+        <item name="actionButtonStyle">@style/AppTheme.ActionButton</item>
         <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
         <item name="radioButtonStyle">@style/AppTheme.RadioButton</item>
         <item name="imageButtonStyle">@style/AppTheme.ImageButton</item>
@@ -53,6 +55,9 @@
 
         <!-- Disabling over scroll glow for entire application -->
         <item name="android:overScrollMode">never</item>
+
+        <!-- Disabling action bar shadow -->
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <!-- Text appearance -->
@@ -117,6 +122,18 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/alert_dialog_button_color</item>
         <item name="android:background">@drawable/alert_dialog_button_bg</item>
+    </style>
+
+    <!-- Action mode -->
+    <style name="AppTheme.ActionMode" parent="Widget.AppCompat.ActionMode">
+        <item name="background">@drawable/action_mode_bg</item>
+        <item name="closeItemLayout">@layout/close_action_mode</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">15dp</item>
+    </style>
+
+    <style name="AppTheme.ActionButton" parent="Widget.AppCompat.ActionButton">
+        <item name="android:background">@drawable/image_button_bg</item>
     </style>
 
     <!-- Preferences -->

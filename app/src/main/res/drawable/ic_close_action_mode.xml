@@ -16,16 +16,8 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<resources>
-    <string name="app_name">Simple Ink Launcher</string>
-    <string name="app_settings_label">Settings</string>
-    <string name="total_item_count_label">Total items: %1$d</string>
-    <string name="ok_button">OK</string>
-    <string name="wifi_enabled">Wi-Fi enabled</string>
-    <string name="wifi_disabled">Wi-Fi disabled</string>
-    <string name="write_permissions_request_title">Write permissions request</string>
-    <string name="write_permissions_request_message">Write permissions to system settings are required to control brightness level.</string>
-    <string name="app_drawer_item_hide">Hide</string>
-    <string name="app_drawer_item_delete">Delete</string>
-    <string name="app_drawer_item_launcher_settings">Settings</string>
-</resources>
+<vector android:height="24dp" android:viewportHeight="39.999996"
+    android:viewportWidth="40" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF000000"
+        android:pathData="M27.5818,20 L38.9534,8.6284c1.3955,-1.3955 1.3955,-3.658 0,-5.0546l-2.5273,-2.5273c-1.3955,-1.3954 -3.658,-1.3954 -5.0545,0L20,12.4182 8.6284,1.0466c-1.3955,-1.3954 -3.658,-1.3954 -5.0545,0l-2.5273,2.5273c-1.3955,1.3955 -1.3955,3.658 0,5.0546L12.4182,20 1.0466,31.3716c-1.3955,1.3955 -1.3955,3.658 0,5.0546l2.5273,2.5273c1.3955,1.3954 3.6591,1.3954 5.0545,0L20,27.5818 31.3716,38.9534c1.3955,1.3954 3.6591,1.3954 5.0545,0l2.5273,-2.5273c1.3955,-1.3955 1.3955,-3.658 0,-5.0546z" android:strokeWidth="0.11363637"/>
+</vector>
