@@ -52,12 +52,21 @@
 
         <activity
             android:name=".LauncherSettingsActivity"
-            android:label="@string/app_settings_label"
             android:parentActivityName=".LauncherMainActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LauncherMainActivity" />
+
+        </activity>
+
+        <activity
+            android:name=".MainScreenSettingsActivity"
+            android:parentActivityName=".LauncherSettingsActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LauncherSettingsActivity" />
 
         </activity>
     </application>

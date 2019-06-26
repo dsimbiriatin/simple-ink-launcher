@@ -16,22 +16,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.ds.simple.ink.launcher;
+package org.ds.simple.ink.launcher.settings.fragment;
 
-import android.os.Bundle;
+import android.content.Intent;
 
-import org.ds.simple.ink.launcher.settings.fragment.LauncherPreferencesFragment;
+import androidx.preference.PreferenceFragmentCompat;
 
-public class LauncherSettingsActivity extends BaseLauncherActivity {
+import org.ds.simple.ink.launcher.BaseLauncherActivity;
 
-    @Override
-    protected void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
+import lombok.NonNull;
+import lombok.val;
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings_layout, new LauncherPreferencesFragment())
-                .commit();
+abstract class BasePreferencesFragment extends PreferenceFragmentCompat {
+
+    void onPreferenceClickNavigateTo(final int id, @NonNull final Class<? extends BaseLauncherActivity> settingsActivity) {
+        val preference = findPreference(getString(id));
+        if (preference != null) {
+            preference.setOnPreferenceClickListener(clickedPreference -> {
+                startActivity(new Intent(getActivity(), settingsActivity));
+                return true;
+            });
+        }
     }
 }

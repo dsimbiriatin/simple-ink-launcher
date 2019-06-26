@@ -22,19 +22,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
 
+import org.ds.simple.ink.launcher.MainScreenSettingsActivity;
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.settings.preference.MultiChoiceListPreference;
 import org.ds.simple.ink.launcher.settings.preference.SingleChoiceListPreference;
 
 import lombok.val;
 
-public class LauncherPreferencesFragment extends PreferenceFragmentCompat {
+public class LauncherPreferencesFragment extends BasePreferencesFragment {
 
     @Override
     public void onCreatePreferences(final Bundle savedInstanceState, final String rootKey) {
         setPreferencesFromResource(R.xml.launcher_preferences, rootKey);
+        onPreferenceClickNavigateTo(R.string.main_screen_preferences_key, MainScreenSettingsActivity.class);
     }
 
     @Override

@@ -1,0 +1,28 @@
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M0,13.2143L0,2.1429C0,0.9554 0.9554,0 2.1429,0L13.2143,0c0.5893,0 1.0714,0.4821 1.0714,1.0714v3.5714c0,0.5893 -0.4821,1.0714 -1.0714,1.0714L5.7143,5.7143v7.5c0,0.5893 -0.4821,1.0714 -1.0714,1.0714L1.0714,14.2857C0.4821,14.2857 0,13.8036 0,13.2143ZM25.7143,1.0714v3.5714c0,0.5893 0.4821,1.0714 1.0714,1.0714h7.5v7.5c0,0.5893 0.4821,1.0714 1.0714,1.0714h3.5714C39.5179,14.2857 40,13.8036 40,13.2143L40,2.1429C40,0.9554 39.0446,0 37.8571,0L26.7857,0c-0.5893,0 -1.0714,0.4821 -1.0714,1.0714zM38.9286,25.7143h-3.5714c-0.5893,0 -1.0714,0.4821 -1.0714,1.0714v7.5h-7.5c-0.5893,0 -1.0714,0.4821 -1.0714,1.0714v3.5714c0,0.5893 0.4821,1.0714 1.0714,1.0714L37.8571,40C39.0446,40 40,39.0446 40,37.8571L40,26.7857c0,-0.5893 -0.4821,-1.0714 -1.0714,-1.0714zM14.2857,38.9286v-3.5714c0,-0.5893 -0.4821,-1.0714 -1.0714,-1.0714L5.7143,34.2857v-7.5c0,-0.5893 -0.4821,-1.0714 -1.0714,-1.0714L1.0714,25.7143C0.4821,25.7143 0,26.1964 0,26.7857L0,37.8571C0,39.0446 0.9554,40 2.1429,40L13.2143,40c0.5893,0 1.0714,-0.4821 1.0714,-1.0714z"
+      android:strokeWidth="0.08928572"/>
+</vector>

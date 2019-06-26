@@ -19,7 +19,6 @@
 
 <resources>
     <string name="app_name">Simple Ink Launcher</string>
-    <string name="app_settings_label">Настройки</string>
     <string name="auto_start_reader_app_summary">Автоматически запускать приложение для чтения после загрузки устройства</string>
     <string name="auto_start_reader_app_title">Запускать автоматически</string>
     <string name="default_reader_app_summary">Выберите приложение для чтения по умолчанию</string>

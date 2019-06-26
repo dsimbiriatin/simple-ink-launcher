@@ -1,0 +1,28 @@
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="m11.6666,2.1429v7.1428c0,1.1835 -0.8395,2.1429 -1.875,2.1429L1.875,11.4286C0.8395,11.4286 0,10.4692 0,9.2857L0,2.1429C0,0.9594 0.8395,0 1.875,0h7.9166c1.0355,0 1.875,0.9594 1.875,2.1429zM25.8334,23.5714v-7.1429c0,-1.1835 -0.8395,-2.1429 -1.875,-2.1429h-7.9167c-1.0355,0 -1.875,0.9594 -1.875,2.1429v7.1429c0,1.1835 0.8395,2.1429 1.875,2.1429h7.9166c1.0356,0 1.8751,-0.9594 1.8751,-2.1429zM28.3334,2.1429v7.1428c0,1.1835 0.8395,2.1429 1.875,2.1429L38.125,11.4286C39.1605,11.4286 40,10.4692 40,9.2857L40,2.1429C40,0.9594 39.1605,0 38.125,0h-7.9166c-1.0355,0 -1.875,0.9594 -1.875,2.1429zM25.8334,9.2857L25.8334,2.1429C25.8334,0.9594 24.9939,0 23.9584,0h-7.9167c-1.0355,0 -1.875,0.9594 -1.875,2.1429v7.1428c0,1.1835 0.8395,2.1429 1.875,2.1429h7.9166c1.0356,0 1.8751,-0.9594 1.8751,-2.1429zM9.7916,14.2857L1.875,14.2857C0.8395,14.2857 0,15.2451 0,16.4286v7.1429c0,1.1835 0.8395,2.1429 1.875,2.1429h7.9166c1.0355,0 1.875,-0.9594 1.875,-2.1429v-7.1429c0,-1.1835 -0.8395,-2.1429 -1.875,-2.1429zM0,30.7143v7.1428C0,39.0406 0.8395,40 1.875,40h7.9166c1.0355,0 1.875,-0.9594 1.875,-2.1429v-7.1428c0,-1.1835 -0.8395,-2.1429 -1.875,-2.1429L1.875,28.5714C0.8395,28.5714 0,29.5308 0,30.7143ZM30.2084,25.7143L38.125,25.7143c1.0355,0 1.875,-0.9594 1.875,-2.1429v-7.1429c0,-1.1835 -0.8395,-2.1429 -1.875,-2.1429h-7.9166c-1.0355,0 -1.875,0.9594 -1.875,2.1429v7.1429c0,1.1835 0.8395,2.1429 1.875,2.1429zM30.2084,40L38.125,40C39.1605,40 40,39.0406 40,37.8571v-7.1428c0,-1.1835 -0.8395,-2.1429 -1.875,-2.1429h-7.9166c-1.0355,0 -1.875,0.9594 -1.875,2.1429v7.1428c0,1.1835 0.8395,2.1429 1.875,2.1429zM14.1666,30.7143v7.1428c0,1.1835 0.8395,2.1429 1.875,2.1429h7.9166c1.0355,0 1.875,-0.9594 1.875,-2.1429v-7.1428c0,-1.1835 -0.8395,-2.1429 -1.875,-2.1429h-7.9166c-1.0355,0 -1.875,0.9594 -1.875,2.1429z"
+      android:strokeWidth="0.08351914"/>
+</vector>

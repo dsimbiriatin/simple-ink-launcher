@@ -16,22 +16,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.ds.simple.ink.launcher;
+package org.ds.simple.ink.launcher.settings.fragment;
 
 import android.os.Bundle;
 
-import org.ds.simple.ink.launcher.settings.fragment.LauncherPreferencesFragment;
+import org.ds.simple.ink.launcher.R;
 
-public class LauncherSettingsActivity extends BaseLauncherActivity {
+public class MainScreenPreferencesFragment extends BasePreferencesFragment {
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings_layout, new LauncherPreferencesFragment())
-                .commit();
+    public void onCreatePreferences(final Bundle savedInstanceState, final String rootKey) {
+        setPreferencesFromResource(R.xml.main_screen_preferences, rootKey);
     }
 }

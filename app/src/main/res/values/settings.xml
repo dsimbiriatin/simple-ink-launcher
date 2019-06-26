@@ -65,6 +65,24 @@
     <string name="icons_theme_summary">Define custom icons theme</string>
     <string name="icons_theme_default_label">Default</string>
 
+    <!-- Main screen preferences -->
+    <string name="main_screen_preferences_key" translatable="false">mainScreenPreferences</string>
+    <string name="main_screen_preferences_title">Main screen</string>
+    <string name="main_screen_preferences_summary">Define how applications are presented on the main screen</string>
+    <string name="main_screen_preference_section">@string/main_screen_preferences_title</string>
+
+    <string name="main_screen_columns_key" translatable="false">mainScreenColumns</string>
+    <string name="main_screen_columns_title">Columns</string>
+    <integer name="main_screen_columns_min_value">2</integer>
+    <integer name="main_screen_columns_max_value">6</integer>
+    <integer name="main_screen_columns_default_value">3</integer>
+
+    <string name="main_screen_icons_size_key" translatable="false">mainScreenIconsSize</string>
+    <string name="main_screen_icons_size_title">Icons size</string>
+    <integer name="main_screen_icons_size_min_value">24</integer>
+    <integer name="main_screen_icons_size_max_value">100</integer>
+    <integer name="main_screen_icons_size_default_value">65</integer>
+
     <!-- Toolbar section -->
     <string name="toolbar_preference_section">Toolbar</string>
     <string name="show_backlight_switch_key" translatable="false">showBacklightSwitch</string>

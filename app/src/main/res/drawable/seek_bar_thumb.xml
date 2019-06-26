@@ -17,8 +17,10 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/launcher_settings"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    />
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    >
+
+    <solid android:color="@android:color/black"/>
+    <size android:height="25dp" android:width="25dp"/>
+</shape>

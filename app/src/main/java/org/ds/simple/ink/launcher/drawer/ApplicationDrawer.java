@@ -53,7 +53,8 @@ import static android.content.Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
 public class ApplicationDrawer extends GridView implements ActivityTypeAware,
                                                            ApplicationRepository.OnCacheUpdateListener,
                                                            ApplicationSettings.OnSortingStrategyChangeListener,
-                                                           ApplicationSettings.OnHideApplicationsChangeListener {
+                                                           ApplicationSettings.OnHideApplicationsChangeListener,
+                                                           ApplicationSettings.OnMainScreenSettingsChangeListener {
     public interface OnTotalItemCountChangeListener {
 
         /**
@@ -109,6 +110,12 @@ public class ApplicationDrawer extends GridView implements ActivityTypeAware,
         getAdapter().hideItems(componentFlattenNames);
     }
 
+    public void applyMainScreenPreferences(@NonNull final MainScreenPreferences preferences) {
+        val density = getResources().getDisplayMetrics().density;
+        getAdapter().setItemIconSize((int) (preferences.getIconSize() * density));
+        setNumColumns(preferences.getColumns());
+    }
+
     @Override
     @SuppressLint("ClickableViewAccessibility")
     public boolean onTouchEvent(final MotionEvent event) {
@@ -140,6 +147,11 @@ public class ApplicationDrawer extends GridView implements ActivityTypeAware,
     public void hideApplicationsPreferenceChanged(final Set<String> newComponentFlattenNames) {
         hideApplications(newComponentFlattenNames);
         notifyTotalCountChanged(getCount());
+    }
+
+    @Override
+    public void mainScreenPreferencesChanged(final MainScreenPreferences newPreferences) {
+        applyMainScreenPreferences(newPreferences);
     }
 
     @SuppressWarnings("ConstantConditions")
