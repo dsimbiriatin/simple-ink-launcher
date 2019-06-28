@@ -39,7 +39,7 @@
 
         <activity
             android:name=".LauncherMainActivity"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             >
 
             <intent-filter>
@@ -52,22 +52,11 @@
 
         <activity
             android:name=".LauncherSettingsActivity"
-            android:parentActivityName=".LauncherMainActivity">
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LauncherMainActivity" />
-
-        </activity>
+            android:parentActivityName=".LauncherMainActivity"/>
 
         <activity
             android:name=".MainScreenSettingsActivity"
-            android:parentActivityName=".LauncherSettingsActivity">
+            android:parentActivityName=".LauncherSettingsActivity"/>
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LauncherSettingsActivity" />
-
-        </activity>
     </application>
 </manifest>
