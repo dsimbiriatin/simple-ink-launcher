@@ -29,7 +29,6 @@ import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
 
 import org.ds.simple.ink.launcher.BaseLauncherActivity;
-import org.ds.simple.ink.launcher.LauncherSettingsActivity;
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 
@@ -77,9 +76,6 @@ public class ItemActionModeListener implements AbsListView.MultiChoiceModeListen
             case R.id.delete_action:
                 requestSelectionDelete();
                 break;
-            case R.id.launcher_settings_action:
-                startSettingsActivity();
-                break;
             default:
                 return false;
         }
@@ -104,11 +100,6 @@ public class ItemActionModeListener implements AbsListView.MultiChoiceModeListen
         val uninstallIntent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE);
         uninstallIntent.setData(Uri.parse("package:" + packageName));
         activity.startActivity(uninstallIntent);
-    }
-
-    private void startSettingsActivity() {
-        val settingsIntent = new Intent(activity, LauncherSettingsActivity.class);
-        activity.startActivity(settingsIntent);
     }
 
     @Override

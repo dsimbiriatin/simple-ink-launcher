@@ -33,10 +33,4 @@
         android:title="@string/app_drawer_item_delete"
         android:icon="@drawable/ic_delete_application"
         />
-
-    <item
-        android:id="@+id/launcher_settings_action"
-        android:title="@string/app_drawer_item_launcher_settings"
-        android:icon="@drawable/ic_launcher_settings"
-        />
 </menu>
