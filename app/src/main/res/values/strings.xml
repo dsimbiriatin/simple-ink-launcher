@@ -26,5 +26,4 @@
     <string name="write_permissions_request_message">Write permissions to system settings are required to control brightness level.</string>
     <string name="app_drawer_item_hide">Hide</string>
     <string name="app_drawer_item_delete">Delete</string>
-    <string name="app_drawer_item_launcher_settings">Settings</string>
 </resources>

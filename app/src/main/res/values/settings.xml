@@ -69,7 +69,7 @@
     <string name="main_screen_preferences_key" translatable="false">mainScreenPreferences</string>
     <string name="main_screen_preferences_title">Main screen</string>
     <string name="main_screen_preferences_summary">Define how applications are presented on the main screen</string>
-    <string name="main_screen_preference_section">@string/main_screen_preferences_title</string>
+    <string name="main_screen_preference_section" translatable="false">@string/main_screen_preferences_title</string>
 
     <string name="main_screen_columns_key" translatable="false">mainScreenColumns</string>
     <string name="main_screen_columns_title">Columns</string>

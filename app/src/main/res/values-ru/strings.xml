@@ -48,4 +48,11 @@
     <string name="toolbar_location_summary">Выберите где будет находиться панель инструментов</string>
     <string name="toolbar_location_top">В верхней части экрана</string>
     <string name="toolbar_location_bottom">В нижней части экрана</string>
+    <string name="main_screen_columns_title">Столбцы</string>
+    <string name="main_screen_icons_size_title">Размер иконок</string>
+    <string name="toolbar_location_hidden">Не отображать</string>
+    <string name="app_drawer_item_delete">Удалить</string>
+    <string name="app_drawer_item_hide">Спрятать</string>
+    <string name="main_screen_preferences_title">Основной экран</string>
+    <string name="main_screen_preferences_summary">Выберите способ отображения иконок на основном экране</string>
 </resources>
