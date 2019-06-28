@@ -28,6 +28,8 @@ import android.provider.Settings;
 
 import lombok.NonNull;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
 import static android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
@@ -45,6 +47,7 @@ public class SystemSettings {
     {
         this.manageWriteSettings = new Intent(ACTION_MANAGE_WRITE_SETTINGS);
         manageWriteSettings.setData(Uri.parse("package:org.ds.simple.ink.launcher"));
+        manageWriteSettings.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
     }
 
     public SystemSettings(@NonNull final Context context) {
