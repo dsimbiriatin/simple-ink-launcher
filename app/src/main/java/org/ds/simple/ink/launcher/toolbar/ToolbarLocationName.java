@@ -19,5 +19,5 @@
 package org.ds.simple.ink.launcher.toolbar;
 
 public enum  ToolbarLocationName {
-    TOP, BOTTOM
+    TOP, BOTTOM, HIDDEN
 }

@@ -103,7 +103,7 @@
             app:title="@string/toolbar_location_title"
             app:summary="@string/toolbar_location_summary"
             app:defaultValue="@string/toolbar_location_default_value"
-            app:icon="@drawable/ic_toolbar_location"
+            app:icon="@drawable/ic_toolbar_location_bottom"
             app:layout="@layout/preference_custom"
             />
 

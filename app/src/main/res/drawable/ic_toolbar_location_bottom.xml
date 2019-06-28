@@ -16,8 +16,22 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<vector android:height="24dp" android:viewportHeight="40.00001"
-    android:viewportWidth="40" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="#FF000000"
-        android:pathData="m36.8878,17.007 l1.9826,1.9819c0.8395,0.8392 0.8395,2.1962 0,3.0264L21.5182,39.3706c-0.8395,0.8392 -2.1969,0.8392 -3.0275,0L1.1296,22.0154c-0.8395,-0.8392 -0.8395,-2.1962 0,-3.0264l1.9826,-1.9819c0.8484,-0.8481 2.2327,-0.8303 3.0632,0.0357L16.4278,27.8005V2.1426C16.4278,0.9553 17.3833,0 18.5711,0h2.8578c1.1878,0 2.1433,0.9553 2.1433,2.1426V27.8005L33.8246,17.0427c0.8305,-0.8749 2.2148,-0.8928 3.0632,-0.0357z" android:strokeWidth="0.08929095"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M33.75,0H6.25C4.1797,0 2.5,1.6797 2.5,3.75v32.5C2.5,38.3203 4.1797,40 6.25,40h27.5c2.0703,0 3.75,-1.6797 3.75,-3.75V3.75C37.5,1.6797 35.8203,0 33.75,0ZM20,37.5c-1.3828,0 -2.5,-1.1172 -2.5,-2.5 0,-1.3828 1.1172,-2.5 2.5,-2.5 1.3828,0 2.5,1.1172 2.5,2.5 0,1.3828 -1.1172,2.5 -2.5,2.5zM33.75,29.0625C33.75,29.5781 33.3281,30 32.8125,30H7.1875C6.6719,30 6.25,29.5781 6.25,29.0625V4.6875C6.25,4.1719 6.6719,3.75 7.1875,3.75h25.625c0.5156,0 0.9375,0.4219 0.9375,0.9375z"
+      android:strokeWidth="0.078125"/>
+  <path
+      android:pathData="M10.0261,26.8614h20.0163v0.0847h-20.0163z"
+      android:strokeAlpha="0.99"
+      android:strokeLineJoin="round"
+      android:strokeWidth="3.97643781"
+      android:fillColor="#000000"
+      android:strokeColor="#000000"
+      android:fillAlpha="0.99"
+      android:strokeLineCap="butt"/>
 </vector>
