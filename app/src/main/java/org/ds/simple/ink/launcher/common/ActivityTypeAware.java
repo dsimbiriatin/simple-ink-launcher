@@ -38,7 +38,7 @@ public interface ActivityTypeAware {
             if (type.isInstance(wrapper)) {
                 return type.cast(wrapper);
             } else {
-                unwrap(wrapper.getBaseContext(), type);
+                return unwrap(wrapper.getBaseContext(), type);
             }
         }
         return null;
