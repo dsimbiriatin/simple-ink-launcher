@@ -18,15 +18,23 @@
 
 package org.ds.simple.ink.launcher.drawer;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import org.ds.simple.ink.launcher.BaseLauncherActivity;
+import org.ds.simple.ink.launcher.LauncherSettingsActivity;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.ds.simple.ink.launcher.apps.ApplicationRepository;
+import org.ds.simple.ink.launcher.common.ActivityTypeAware;
 import org.ds.simple.ink.launcher.settings.ApplicationSettings;
 
 import java.util.Comparator;
@@ -36,14 +44,17 @@ import java.util.Set;
 import java.util.WeakHashMap;
 
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.val;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
 
-public class ApplicationDrawer extends GridView implements ApplicationRepository.OnCacheUpdateListener,
+public class ApplicationDrawer extends GridView implements ActivityTypeAware,
+                                                           ApplicationRepository.OnCacheUpdateListener,
                                                            ApplicationSettings.OnSortingStrategyChangeListener,
-                                                           ApplicationSettings.OnHideApplicationsChangeListener {
+                                                           ApplicationSettings.OnHideApplicationsChangeListener,
+                                                           ApplicationSettings.OnMainScreenSettingsChangeListener {
     public interface OnTotalItemCountChangeListener {
 
         /**
@@ -61,10 +72,30 @@ public class ApplicationDrawer extends GridView implements ApplicationRepository
      */
     private final Map<OnTotalItemCountChangeListener, Object> listeners = new WeakHashMap<>();
 
+    /**
+     * Detects long press touch events, which occur on grid's space, not occupied by any item.
+     * Currently used to invoke launcher settings upon this event.
+     * @see LongPressOnEmptyGridSpace
+     */
+    private GestureDetector longPressOnEmptySpaceDetector;
+
     public ApplicationDrawer(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         setOnItemClickListener(new StartSelectedActivity());
         setAdapter(new ApplicationDrawerAdapter(getContext()));
+
+        val activity = getActivity(context, BaseLauncherActivity.class);
+        enableActionModeSupportForGridItems(activity);
+        enableActionsOnGridEmptySpaceLongPress(activity);
+    }
+
+    private void enableActionModeSupportForGridItems(final BaseLauncherActivity activity) {
+        setMultiChoiceModeListener(new ItemActionModeListener(activity, getAdapter()::getItem));
+        setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
+    }
+
+    private void enableActionsOnGridEmptySpaceLongPress(final BaseLauncherActivity activity) {
+        longPressOnEmptySpaceDetector = new GestureDetector(activity, new LongPressOnEmptyGridSpace(activity));
     }
 
     public void setApplications(@NonNull final List<ApplicationInfo> applicationInfos) {
@@ -77,6 +108,18 @@ public class ApplicationDrawer extends GridView implements ApplicationRepository
 
     public void hideApplications(@NonNull final Set<String> componentFlattenNames) {
         getAdapter().hideItems(componentFlattenNames);
+    }
+
+    public void applyMainScreenPreferences(@NonNull final MainScreenPreferences preferences) {
+        val density = getResources().getDisplayMetrics().density;
+        getAdapter().setItemIconSize((int) (preferences.getIconSize() * density));
+        setNumColumns(preferences.getColumns());
+    }
+
+    @Override
+    @SuppressLint("ClickableViewAccessibility")
+    public boolean onTouchEvent(final MotionEvent event) {
+        return longPressOnEmptySpaceDetector.onTouchEvent(event) || super.onTouchEvent(event);
     }
 
     @Override
@@ -106,6 +149,11 @@ public class ApplicationDrawer extends GridView implements ApplicationRepository
         notifyTotalCountChanged(getCount());
     }
 
+    @Override
+    public void mainScreenPreferencesChanged(final MainScreenPreferences newPreferences) {
+        applyMainScreenPreferences(newPreferences);
+    }
+
     @SuppressWarnings("ConstantConditions")
     public void registerOnTotalCountChangeListener(@NonNull final OnTotalItemCountChangeListener listener) {
         listeners.put(listener, null);
@@ -114,6 +162,24 @@ public class ApplicationDrawer extends GridView implements ApplicationRepository
     private void notifyTotalCountChanged(final int newCount) {
         for (val listener : listeners.keySet()) {
             listener.totalCountChanged(newCount);
+        }
+    }
+
+    @RequiredArgsConstructor
+    private class LongPressOnEmptyGridSpace extends GestureDetector.SimpleOnGestureListener {
+
+        private final Activity activity;
+
+        @Override
+        public void onLongPress(final MotionEvent event) {
+            if (isNotPressedOnGridItem(event)) {
+                val settingsIntent = new Intent(activity, LauncherSettingsActivity.class);
+                activity.startActivity(settingsIntent);
+            }
+        }
+
+        private boolean isNotPressedOnGridItem(final MotionEvent event) {
+            return pointToPosition((int) event.getX(), (int) event.getY()) == -1;
         }
     }
 

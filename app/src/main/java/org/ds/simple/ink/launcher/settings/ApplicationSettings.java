@@ -27,20 +27,24 @@ import com.google.common.collect.ImmutableSet;
 
 import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
+import org.ds.simple.ink.launcher.settings.ApplicationSettings.OnMainScreenSettingsChangeListener.MainScreenPreferences;
 import org.ds.simple.ink.launcher.sorting.SortingStrategies;
 import org.ds.simple.ink.launcher.sorting.SortingStrategyName;
 import org.ds.simple.ink.launcher.toolbar.ToolbarLocationName;
 import org.ds.simple.ink.launcher.utils.ComponentNameUtils;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
 
 import lombok.NonNull;
+import lombok.Value;
 import lombok.val;
 
 import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
+import static com.google.common.collect.Sets.newHashSet;
 import static org.ds.simple.ink.launcher.sorting.SortingStrategyName.READER_APP_FIRST;
 
 public class ApplicationSettings implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -94,6 +98,20 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
         void toolbarLocationChanged(final ToolbarLocationName newLocation);
     }
 
+    public interface OnMainScreenSettingsChangeListener {
+
+        /**
+         * Called after application grid attributes have changed.
+         */
+        void mainScreenPreferencesChanged(final MainScreenPreferences newPreferences);
+
+        @Value
+        class MainScreenPreferences {
+            private int columns;
+            private int iconSize;
+        }
+    }
+
     private final SortingStrategies sortingStrategies;
     private final SharedPreferences sharedPreferences;
 
@@ -119,11 +137,20 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
     private final String toolbarLocationKey;
     private final String toolbarLocationDefault;
 
+    private final String mainScreenColumnsKey;
+    private final int mainScreenColumnsDefault;
+
+    private final String mainScreenIconsSizeKey;
+    private final int mainScreenIconsSizeDefault;
+
+    private final Set<String> mainScreenPreferenceKeys = new HashSet<>();
+
     private final Map<OnIconsThemeChangeListener, Object> iconsThemeChangeListeners = new WeakHashMap<>();
     private final Map<OnSortingStrategyChangeListener, Object> sortingStrategyListeners = new WeakHashMap<>();
     private final Map<OnToolbarLocationChangeListener, Object> toolbarLocationChangeListeners = new WeakHashMap<>();
     private final Map<OnHideApplicationsChangeListener, Object> hideApplicationsChangeListeners = new WeakHashMap<>();
     private final Map<OnWifiSwitchEnabledChangeListener, Object> wifiSwitchEnabledChangeListeners = new WeakHashMap<>();
+    private final Map<OnMainScreenSettingsChangeListener, Object> mainScreenSettingsChangeListeners = new WeakHashMap<>();
     private final Map<OnBacklightSwitchEnabledChangeListener, Object> backlightSwitchEnabledChangeListeners = new WeakHashMap<>();
 
     private ApplicationSettings(@NonNull final Resources resources, @NonNull final SharedPreferences sharedPreferences) {
@@ -151,6 +178,15 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
 
         this.toolbarLocationKey = resources.getString(R.string.toolbar_location_key);
         this.toolbarLocationDefault = resources.getString(R.string.toolbar_location_default_value);
+
+        this.mainScreenColumnsKey = resources.getString(R.string.main_screen_columns_key);
+        this.mainScreenColumnsDefault = resources.getInteger(R.integer.main_screen_columns_default_value);
+
+        this.mainScreenIconsSizeKey = resources.getString(R.string.main_screen_icons_size_key);
+        this.mainScreenIconsSizeDefault = resources.getInteger(R.integer.main_screen_icons_size_default_value);
+
+        mainScreenPreferenceKeys.add(mainScreenColumnsKey);
+        mainScreenPreferenceKeys.add(mainScreenIconsSizeKey);
     }
 
     public Comparator<ApplicationInfo> getSortingStrategy() {
@@ -186,6 +222,12 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
     public ToolbarLocationName getToolbarLocation() {
         val toolbarLocation = sharedPreferences.getString(toolbarLocationKey, toolbarLocationDefault);
         return ToolbarLocationName.valueOf(toolbarLocation);
+    }
+
+    public MainScreenPreferences getMainScreenPreferences() {
+        val columns = sharedPreferences.getInt(mainScreenColumnsKey, mainScreenColumnsDefault);
+        val iconsSize = sharedPreferences.getInt(mainScreenIconsSizeKey, mainScreenIconsSizeDefault);
+        return new MainScreenPreferences(columns, iconsSize);
     }
 
     private String getDefaultReaderApplication() {
@@ -226,12 +268,26 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
         toolbarLocationChangeListeners.put(listener, null);
     }
 
+    @SuppressWarnings("ConstantConditions")
+    public void registerMainScreenPreferencesChangeListener(@NonNull final OnMainScreenSettingsChangeListener listener) {
+        mainScreenSettingsChangeListeners.put(listener, null);
+    }
+
     public void notifyApplicationRemoved(final String packageName) {
         if (getIconsTheme().equals(packageName)) {
             val edit = sharedPreferences.edit();
             edit.putString(iconsThemeKey, "");
             edit.apply();
         }
+    }
+
+    public void notifyNewHiddenApplications(@NonNull final Set<String> flattenComponentNames) {
+        val hiddenApplications = newHashSet(getHiddenApplications());
+        hiddenApplications.addAll(flattenComponentNames);
+
+        val edit = sharedPreferences.edit();
+        edit.putStringSet(hiddenApplicationsKey, hiddenApplications);
+        edit.apply();
     }
 
     @Override
@@ -258,6 +314,10 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
 
         if (key.equals(showBacklightSwitchKey)) {
             notifyBacklightSwitchEnabledChanged(showBacklightSwitch());
+        }
+
+        if (mainScreenPreferenceKeys.contains(key)) {
+            notifyMainScreenPreferencesChanged(getMainScreenPreferences());
         }
 
         if (key.equals(defaultReaderAppKey) && READER_APP_FIRST == getSortingStrategyName()) {
@@ -298,6 +358,12 @@ public class ApplicationSettings implements SharedPreferences.OnSharedPreference
     private void notifyToolbarLocationChanged(final ToolbarLocationName newLocation) {
         for (val listener : toolbarLocationChangeListeners.keySet()) {
             listener.toolbarLocationChanged(newLocation);
+        }
+    }
+
+    private void notifyMainScreenPreferencesChanged(final MainScreenPreferences newPreferences) {
+        for (val listener : mainScreenSettingsChangeListeners.keySet()) {
+            listener.mainScreenPreferencesChanged(newPreferences);
         }
     }
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Simple Ink Launcher
+  ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <PreferenceCategory
+        app:title="@string/main_screen_preference_section"
+        app:layout="@layout/preference_category_custom"
+        >
+
+        <androidx.preference.SeekBarPreference
+            app:layout="@layout/seekbar_preference_custom"
+            app:key="@string/main_screen_columns_key"
+            app:title="@string/main_screen_columns_title"
+            app:icon="@drawable/ic_main_screen_columns"
+            app:min="@integer/main_screen_columns_min_value"
+            android:max="@integer/main_screen_columns_max_value"
+            app:defaultValue="@integer/main_screen_columns_default_value"
+            app:showSeekBarValue="true"
+            android:selectable="false"
+            />
+
+        <androidx.preference.SeekBarPreference
+            app:layout="@layout/seekbar_preference_custom"
+            app:key="@string/main_screen_icons_size_key"
+            app:title="@string/main_screen_icons_size_title"
+            app:icon="@drawable/ic_main_screen_icons_size"
+            app:min="@integer/main_screen_icons_size_min_value"
+            android:max="@integer/main_screen_icons_size_max_value"
+            app:defaultValue="@integer/main_screen_icons_size_default_value"
+            app:showSeekBarValue="true"
+            android:selectable="false"
+            />
+
+    </PreferenceCategory>
+</androidx.preference.PreferenceScreen>

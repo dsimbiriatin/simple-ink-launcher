@@ -51,10 +51,12 @@ public class LauncherMainActivity extends BaseLauncherActivity {
         applicationDrawer.setApplications(applicationRepository.listAll(false));
         applicationDrawer.sortApplications(applicationSettings.getSortingStrategy());
         applicationDrawer.hideApplications(applicationSettings.getHiddenApplications());
+        applicationDrawer.applyMainScreenPreferences(applicationSettings.getMainScreenPreferences());
 
         applicationRepository.registerCacheUpdateListener(applicationDrawer);
         applicationSettings.registerSortingStrategyChangeListener(applicationDrawer);
         applicationSettings.registerHideApplicationsChangeListener(applicationDrawer);
+        applicationSettings.registerMainScreenPreferencesChangeListener(applicationDrawer);
 
         applicationDrawerToolbar = findViewById(R.id.app_drawer_toolbar);
         applicationDrawerToolbar.setTotalItemsCount(applicationDrawer.getCount());

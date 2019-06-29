@@ -18,6 +18,8 @@
 
 package org.ds.simple.ink.launcher.toolbar;
 
+import android.view.View;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
@@ -47,15 +49,21 @@ public class ToolbarPositioner implements ApplicationSettings.OnToolbarLocationC
         val constraintSet = new ConstraintSet();
         constraintSet.clone(defaultConstraintSet);
 
-        if (locationName == ToolbarLocationName.BOTTOM) {
+        if (locationName == ToolbarLocationName.HIDDEN) {
+            constraintSet.connect(R.id.apps_grid, TOP, PARENT_ID, TOP);
+            constraintSet.connect(R.id.apps_grid, BOTTOM, PARENT_ID, BOTTOM);
+            constraintSet.setVisibility(R.id.app_drawer_toolbar, View.GONE);
+
+        }  else if (locationName == ToolbarLocationName.TOP) {
+            constraintSet.connect(R.id.app_drawer_toolbar, TOP, PARENT_ID, TOP);
+            constraintSet.connect(R.id.apps_grid, TOP, R.id.app_drawer_toolbar, BOTTOM);
+            constraintSet.connect(R.id.apps_grid, BOTTOM, PARENT_ID, BOTTOM);
+
+        } else if (locationName == ToolbarLocationName.BOTTOM) {
             constraintSet.connect(R.id.apps_grid, TOP, PARENT_ID, TOP);
             constraintSet.connect(R.id.apps_grid, BOTTOM, R.id.app_drawer_toolbar, TOP);
             constraintSet.connect(R.id.app_drawer_toolbar, BOTTOM, PARENT_ID, BOTTOM);
 
-        } else if (locationName == ToolbarLocationName.TOP) {
-            constraintSet.connect(R.id.app_drawer_toolbar, TOP, PARENT_ID, TOP);
-            constraintSet.connect(R.id.apps_grid, TOP, R.id.app_drawer_toolbar, BOTTOM);
-            constraintSet.connect(R.id.apps_grid, BOTTOM, PARENT_ID, BOTTOM);
         }
         constraintSet.applyTo(activityLayout);
     }

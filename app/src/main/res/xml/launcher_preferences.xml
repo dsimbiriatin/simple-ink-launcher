@@ -73,6 +73,14 @@
             app:layout="@layout/preference_custom"
             />
 
+        <Preference
+            app:key="@string/main_screen_preferences_key"
+            app:title="@string/main_screen_preferences_title"
+            app:summary="@string/main_screen_preferences_summary"
+            app:icon="@drawable/ic_main_screen_preferences"
+            app:layout="@layout/preference_custom"
+            />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -103,7 +111,7 @@
             app:title="@string/toolbar_location_title"
             app:summary="@string/toolbar_location_summary"
             app:defaultValue="@string/toolbar_location_default_value"
-            app:icon="@drawable/ic_toolbar_location"
+            app:icon="@drawable/ic_toolbar_location_bottom"
             app:layout="@layout/preference_custom"
             />
 

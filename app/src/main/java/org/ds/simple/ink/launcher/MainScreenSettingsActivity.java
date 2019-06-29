@@ -20,9 +20,9 @@ package org.ds.simple.ink.launcher;
 
 import android.os.Bundle;
 
-import org.ds.simple.ink.launcher.settings.fragment.LauncherPreferencesFragment;
+import org.ds.simple.ink.launcher.settings.fragment.MainScreenPreferencesFragment;
 
-public class LauncherSettingsActivity extends BaseLauncherActivity {
+public class MainScreenSettingsActivity extends BaseLauncherActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class LauncherSettingsActivity extends BaseLauncherActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.settings_layout, new LauncherPreferencesFragment())
+                .replace(R.id.settings_layout, new MainScreenPreferencesFragment())
                 .commit();
     }
 }

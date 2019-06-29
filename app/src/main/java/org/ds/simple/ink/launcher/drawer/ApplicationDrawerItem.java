@@ -26,6 +26,9 @@ import org.ds.simple.ink.launcher.R;
 import org.ds.simple.ink.launcher.apps.ApplicationInfo;
 import org.ds.simple.ink.launcher.common.ViewCache;
 
+import lombok.NonNull;
+import lombok.val;
+
 public class ApplicationDrawerItem extends LinearLayout {
 
     private final ViewCache children = new ViewCache(this);
@@ -41,8 +44,16 @@ public class ApplicationDrawerItem extends LinearLayout {
         super.onMeasure(width, width);
     }
 
-    public void updateWith(final ApplicationInfo applicationInfo) {
-        children.getTextView(R.id.item_label).setText(applicationInfo.getLabel());
-        children.getImageView(R.id.item_icon).setImageDrawable(applicationInfo.getIcon());
+    public void updateWith(@NonNull final ApplicationInfo applicationInfo, final int iconSize) {
+        val label = children.getTextView(R.id.item_label);
+        label.setText(applicationInfo.getLabel());
+
+        val icon = children.getImageView(R.id.item_icon);
+        icon.setImageDrawable(applicationInfo.getIcon());
+
+        val layoutParams = icon.getLayoutParams();
+        layoutParams.width = iconSize;
+        layoutParams.height = iconSize;
+        icon.setLayoutParams(layoutParams);
     }
 }

@@ -19,7 +19,6 @@
 
 <resources>
     <string name="app_name">Simple Ink Launcher</string>
-    <string name="app_settings_label">Ustawienia</string>
     <string name="auto_start_reader_app_summary">Automatycznie uruchom aplikację do czytania po starcie</string>
     <string name="auto_start_reader_app_title">Uruchamiaj automatycznie</string>
     <string name="default_reader_app_summary">Wybierz domyślną aplikację do czytania</string>
@@ -49,4 +48,11 @@
     <string name="toolbar_location_top">Górna część ekranu</string>
     <string name="toolbar_location_bottom">Dolna część ekranu</string>
     <string name="toolbar_location_summary">Wybierz miejsce dla paska narzędzi</string>
+    <string name="main_screen_columns_title">Kolumny</string>
+    <string name="main_screen_icons_size_title">Rozmiar ikon</string>
+    <string name="toolbar_location_hidden">Ukryty</string>
+    <string name="app_drawer_item_delete">Usuń</string>
+    <string name="app_drawer_item_hide">Ukryj</string>
+    <string name="main_screen_preferences_title">Ekran główny</string>
+    <string name="main_screen_preferences_summary">Wybierz sposób wyświetlania aplikacji na ekranie głównym</string>
 </resources>

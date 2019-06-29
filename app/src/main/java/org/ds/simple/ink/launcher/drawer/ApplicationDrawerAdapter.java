@@ -34,6 +34,7 @@ import lombok.val;
 
 public class ApplicationDrawerAdapter extends BaseListAdapter<ApplicationDrawerItem, ApplicationInfo> {
 
+    private int itemIconSize;
     private Set<String> currentHiddenIcons = new HashSet<>();
     private SortedSet<Integer> hiddenItemsPositions = new TreeSet<>();
 
@@ -54,13 +55,18 @@ public class ApplicationDrawerAdapter extends BaseListAdapter<ApplicationDrawerI
 
     @Override
     protected ApplicationDrawerItem getView(final ApplicationDrawerItem itemView, final ApplicationInfo item) {
-        itemView.updateWith(item);
+        itemView.updateWith(item, itemIconSize);
         return itemView;
     }
 
     @Override
     protected void onItemsSort() {
         calculateHiddenItemsPositions(currentHiddenIcons);
+    }
+
+    void setItemIconSize(final int size) {
+        itemIconSize = size;
+        notifyDataSetChanged();
     }
 
     void hideItems(@NonNull final Set<String> componentFlattenNames) {

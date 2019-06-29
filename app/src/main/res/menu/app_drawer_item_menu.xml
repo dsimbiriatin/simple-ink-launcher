@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Simple Ink Launcher
   ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
@@ -16,14 +17,20 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<resources>
-    <string name="app_name">Simple Ink Launcher</string>
-    <string name="total_item_count_label">Total items: %1$d</string>
-    <string name="ok_button">OK</string>
-    <string name="wifi_enabled">Wi-Fi enabled</string>
-    <string name="wifi_disabled">Wi-Fi disabled</string>
-    <string name="write_permissions_request_title">Write permissions request</string>
-    <string name="write_permissions_request_message">Write permissions to system settings are required to control brightness level.</string>
-    <string name="app_drawer_item_hide">Hide</string>
-    <string name="app_drawer_item_delete">Delete</string>
-</resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    >
+
+    <item
+        android:id="@+id/hide_action"
+        android:icon="@drawable/ic_hide_application"
+        android:title="@string/app_drawer_item_hide"
+        />
+
+    <item
+        android:id="@+id/delete_action"
+        android:title="@string/app_drawer_item_delete"
+        android:icon="@drawable/ic_delete_application"
+        />
+</menu>

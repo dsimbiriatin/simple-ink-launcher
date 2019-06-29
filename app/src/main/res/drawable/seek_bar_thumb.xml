@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Simple Ink Launcher
   ~ Copyright (C) 2019  Dmitriy Simbiriatin <dmitriy.simbiriatin@gmail.com>
@@ -16,8 +17,10 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<vector android:height="40dp" android:viewportHeight="40.000004"
-    android:viewportWidth="40" android:width="40dp" xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="#FF000000"
-        android:pathData="m26.2527,29.5266h-3.3465v-19.0532h3.3465c1.5535,0 2.3315,-2.0196 1.2331,-3.2008l-6.2527,-6.7233c-0.681,-0.7323 -1.785,-0.7323 -2.466,0l-6.2527,6.7233c-1.0985,1.1812 -0.3205,3.2008 1.233,3.2008h3.3464v19.0532h-3.3465c-1.5535,0 -2.3315,2.0196 -1.233,3.2009l6.2527,6.7233c0.681,0.7323 1.785,0.7323 2.466,0l6.2527,-6.7233c1.0986,-1.1812 0.3206,-3.2009 -1.233,-3.2009z" android:strokeWidth="0.07534094"/>
-</vector>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    >
+
+    <solid android:color="@android:color/black"/>
+    <size android:height="25dp" android:width="25dp"/>
+</shape>

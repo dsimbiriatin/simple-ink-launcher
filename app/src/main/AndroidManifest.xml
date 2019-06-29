@@ -23,6 +23,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
@@ -38,7 +39,7 @@
 
         <activity
             android:name=".LauncherMainActivity"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             >
 
             <intent-filter>
@@ -51,13 +52,11 @@
 
         <activity
             android:name=".LauncherSettingsActivity"
-            android:label="@string/app_settings_label"
-            android:parentActivityName=".LauncherMainActivity">
+            android:parentActivityName=".LauncherMainActivity"/>
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LauncherMainActivity" />
+        <activity
+            android:name=".MainScreenSettingsActivity"
+            android:parentActivityName=".LauncherSettingsActivity"/>
 
-        </activity>
     </application>
 </manifest>
