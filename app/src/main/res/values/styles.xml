@@ -37,6 +37,8 @@
         <item name="android:selectableItemBackground">@drawable/selectable_item_bg</item>
         
         <item name="android:listPreferredItemHeight">56dp</item>
+        <item name="android:listPreferredItemPaddingLeft">16dp</item>
+        <item name="android:listPreferredItemPaddingRight">16dp</item>
         <item name="android:listPreferredItemPaddingStart">16dp</item>
         <item name="android:listPreferredItemPaddingEnd">16dp</item>
 
@@ -116,6 +118,7 @@
         <item name="android:padding">15dp</item>
         <item name="android:minHeight">0dp</item>
 
+        <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_gravity">center_vertical</item>
 
@@ -128,6 +131,8 @@
     <style name="AppTheme.ActionMode" parent="Widget.AppCompat.ActionMode">
         <item name="background">@drawable/action_mode_bg</item>
         <item name="closeItemLayout">@layout/close_action_mode</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">15dp</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingEnd">15dp</item>
     </style>
