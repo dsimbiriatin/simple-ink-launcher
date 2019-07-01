@@ -129,7 +129,7 @@ public class IconsThemeRepository implements ApplicationSettings.OnIconsThemeCha
         }
 
         val iconsTheme = new IconsTheme(packageName, resources);
-        for (AppFilterItems.Item item : new AppFilterItems(parser)) {
+        for (val item : new AppFilterItems(parser)) {
             iconsTheme.addIconResourceIfNotPresent(item);
         }
         return iconsTheme;
